@@ -260,7 +260,113 @@
   left: 27px;
 }
 
+/* section - 상품안내 */
+
 .con__tran-product {
   transform: translateY(160px);
   opacity: 1;
+}
+.con__product-ul {
+  display: flex;
+  padding: 0 30px;
+  transform: translateY(160px);
+  opacity: 1;
+}
+
+.con__product-ul li {
+  width: 25%;
+  /* height: 290px; */
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+.con__product-ul li:first-child {
+  padding-left: 0;
+}
+.con__product-ul li:last-child {
+  padding-right: 0;
+}
+.con__product-a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.con__product-a h2 {
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-weight: 600;
+}
+.con__product-a img {
+  flex: 1;
+}
+
+.con__product-a::before {
+  content: '';
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #ea002c
+    url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon01_arrow.png')
+    no-repeat center center;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 20%);
+  position: absolute;
+  bottom: -40px;
+  right: 30px;
+  opacity: 0;
+  transition: bottom 0.3s ease;
+}
+
+.con__product-ul li:hover .con__product-a::before {
+  opacity: 1;
+  bottom: -20px;
+}
+
+/* 매장안내 */
+.con__tran-store {
+  transform: translateY(160px);
+  opacity: 1;
+}
+.con__tran-store h2 {
+  margin: 0 0 60px;
+}
+.con__store-slide {
+  padding: 0 50px;
+  transform: translateY(160px);
+  opacity: 1;
+}
+.con__store-slideview {
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+.con__store-ul {
+  display: flex;
+  transform: translateX(0);
+}
+.con__store-ul li {
+  width: 100%;
+  height: 100%;
+}
+.con__store-ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+button {
+  border: none;
+  outline: none;
+  width: 11px;
+  height: 18px;
+}
+.con__store-nextBtn {
+  background: url('https://www.psnmarketing.com/images/main/left.svg') no-repeat;
+}
+.con__store-prevBtn {
+  background: url('https://www.psnmarketing.com/images/main/right.svg')
+    no-repeat;
+}
+
+.con__store-textslide {
 }
