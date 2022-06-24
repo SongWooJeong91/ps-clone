@@ -1,63 +1,54 @@
 .slider__view {
   width: 100%;
   height: 870px;
-  padding-top: 80px;
   position: relative;
+  top: 80px;
   overflow: hidden;
 }
 
 .slider__view ul {
-  width: calc(100vw * 5);
+  height: 100%;
   display: flex;
   position: absolute;
+  top: 0;
+  left: 0;
 }
-
+.slider__view > ul > li {
+  width: 100vw;
+  height: 100%;
+}
 .slider__box,
 .slider__box-01 {
-  width: 100vw;
-  height: 870px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-
-.slider__ul {
-  -webkit-transition: left 0.3s ease-in;
-  transition: left 0.3s ease-in;
-  transition-duration: 0.3s;
+.slider__ul.animated {
+  transition: 0.5s ease-out;
 }
-
 /* 백그라운드 이미지 */
-.slider__ul li:first-child .slider__box-01 {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img02.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.main__slide01 .slider__box-01 {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img02.jpg')
+    no-repeat center/cover;
 }
-.slider__ul li:nth-child(2) .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img03.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.main__slide02 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img03.jpg')
+    no-repeat center/cover;
 }
-.slider__ul li:nth-child(3) .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img04.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.main__slide03 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img04.jpg')
+    no-repeat center/cover;
 }
-.slider__ul li:nth-child(4) .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img05.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.main__slide04 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img05.jpg')
+    no-repeat center/cover;
 }
-.slider__ul li:last-child .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img06.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.main__slide05 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img06.jpg')
+    no-repeat center/cover;
 }
 
 .slide__textbox-01 {

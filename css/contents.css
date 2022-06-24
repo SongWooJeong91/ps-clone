@@ -3,7 +3,7 @@
   padding: 0 30px;
 }
 .con__tran {
-  transform: translateY(180px);
+  transform: translateY(200px);
   opacity: 0;
 }
 
@@ -45,7 +45,6 @@
   margin-top: -40px;
   margin-bottom: 50px;
   font-weight: 400;
-  text-align: center;
 }
 .con__card {
   display: flex;
@@ -56,7 +55,7 @@
   position: relative;
   width: 20%;
   height: 493px;
-  transform: translateY(180px);
+  transform: translateY(200px);
   overflow: hidden;
 }
 .con__card > li:first-child {
@@ -263,14 +262,12 @@
 /* section - 상품안내 */
 
 .con__tran-product {
-  transform: translateY(160px);
-  opacity: 1;
+  transform: translateY(200px);
+  opacity: 0;
 }
 .con__product-ul {
   display: flex;
   padding: 0 30px;
-  transform: translateY(160px);
-  opacity: 1;
 }
 
 .con__product-ul li {
@@ -279,6 +276,8 @@
   padding: 0 15px;
   box-sizing: border-box;
   position: relative;
+  transform: translateY(200px);
+  opacity: 0;
 }
 .con__product-ul li:first-child {
   padding-left: 0;
@@ -325,25 +324,32 @@
 
 /* 매장안내 */
 .con__tran-store {
-  transform: translateY(160px);
-  opacity: 1;
+  transform: translateY(200px);
+  opacity: 0;
 }
 .con__tran-store h2 {
   margin: 0 0 60px;
 }
-.con__store-slide {
-  padding: 0 50px;
-  transform: translateY(160px);
-  opacity: 1;
-}
 .con__store-slideview {
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
+  height: 590px;
+  margin: 0 50px;
+  overflow: hidden;
+  border: 1px solid red;
 }
 .con__store-ul {
   display: flex;
-  transform: translateX(0);
+}
+/* .con__store-slideview {
+  width: 1163px;
+  height: 493px;
+  position: relative;
+  overflow: hidden;
+}
+.con__store-ul {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .con__store-ul li {
   width: 100%;
@@ -353,12 +359,23 @@
   width: 100%;
   height: 100%;
   display: block;
+} */
+.con__store-ul li a p {
+  border: 1px solid red;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 20px;
 }
 button {
   border: none;
   outline: none;
   width: 11px;
   height: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .con__store-nextBtn {
   background: url('https://www.psnmarketing.com/images/main/left.svg') no-repeat;
@@ -367,6 +384,131 @@ button {
   background: url('https://www.psnmarketing.com/images/main/right.svg')
     no-repeat;
 }
+/* PS&Marketing 서비스 */
+.con__service-wrap {
+  padding: 0 30px;
+  display: flex;
+  overflow: hidden;
+  margin: 180px 0 0 0;
+}
+.con__service-wrap h3 {
+  font-size: 27px;
+  font-weight: 600;
+  width: 330px;
+  line-height: 1.7;
+  transform: translateX(-140px);
+  opacity: 0;
+}
+.con__service-wrap > ul {
+  flex: 1;
+  display: flex;
+}
+.con__service-wrap > ul > li {
+  width: 33.33333%;
+  padding: 0 10px 0 72px;
+  transform: translateX(300px);
+  opacity: 0;
+}
+.con__service-wrap > ul > li h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.con__service-wrap > ul > li p {
+  font-size: 17px;
+  color: #444;
+  padding: 10px 0;
+  line-height: 1.7;
+}
 
-.con__store-textslide {
+.con__service-wrap > ul > li:first-child {
+  background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_ico03.png)
+    no-repeat;
+}
+.con__service-wrap > ul > li:nth-child(2) {
+  background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_ico01.png)
+    no-repeat;
+}
+.con__service-wrap > ul > li:last-child {
+  background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_ico02.png)
+    no-repeat;
+}
+.con__service-btnbox li {
+  margin-top: 10px;
+}
+.con__service-btnbox li a {
+  display: block;
+  width: 145px;
+  height: 43px;
+  border: 1px solid #ccc;
+  color: #666;
+  padding: 0 25px;
+  line-height: 43px;
+  border-radius: 45px;
+  background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_arrow.png)
+    no-repeat right 10% top 50%;
+}
+/* 사회적 가치 활동 */
+.con__tran-activity {
+  transform: translateY(200px);
+  opacity: 0;
+}
+.con__activity-ul {
+  display: flex;
+  padding: 0 30px;
+}
+.con__activity-ul > li {
+  width: 25%;
+  height: 550px;
+  margin: 0 10px 30px 10px;
+  background: #f5f5f5;
+}
+.con__activity-img img {
+  width: 100%;
+}
+.con__activity-textbox {
+  padding: 30px;
+}
+.con__activity-textbox > h3 {
+  font-size: 20px;
+  height: 60px;
+  line-height: 1.5;
+  font-weight: 500;
+  text-align: center;
+}
+.date {
+  display: block;
+  color: #777;
+  font-size: 17px;
+  margin: 10px 0;
+  font-weight: 200;
+}
+.activity__text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.activity__more {
+  font-size: 15px;
+  padding: 0 30px 0 0;
+  margin-right: 30px;
+  line-height: 1.7;
+  color: #777;
+  float: right;
+  clear: both;
+  position: relative;
+}
+.activity__more img {
+  width: 15px;
+  height: 13px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.activity__more:hover,
+.activity__more:hover > img {
+  color: #777;
+  transition: 0.6s ease-in-out;
+  right: 0;
 }

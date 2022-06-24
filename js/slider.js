@@ -1,63 +1,98 @@
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-const sliderView = document.querySelector('.slider__view');
-const sliderUl = document.querySelector('.slider__ul');
+const mainSliderView = document.querySelector('.slider__view');
+const mainSliderUl = document.querySelector('.slider__ul');
+const mainSlide = document.querySelectorAll('.slider__ul li');
+const mainSlideCount = mainSlide.length;
+let mainCurrentIdx = 0;
+let mainSlideWidth = window.innerWidth;
+const mainPrev = document.querySelector('.prev');
+const mainNext = document.querySelector('.next');
 
-let currentIdx = 1;
-
-// 화면 전체 너비
-const imgSize = window.innerWidth;
-console.log(imgSize);
-
-const imgPosition = () => {
-  sliderUl.style.left = `-${imgSize * (currentIdx - 1)}px`;
-  //   sliderUl.classList.add('animated');
-};
-
-prev.addEventListener('click', () => {
-  if (currentIdx === 1) currentIdx = 5;
-  else currentIdx -= 1;
-  imgPosition();
+// 윈도우 크기 변화 감지해서 slideWidth 변경
+window.addEventListener('resize', () => {
+  mainSlideWidth = window.innerWidth;
 });
+makeClone();
+// // 앞 뒤로 첫번째 요소, 마지막 요소 복제
+function makeClone() {
+  // 첫번째 요소를 자식까지 복사해서 cloneSlide에 저장
+  let cloneSlideFirst = mainSlide[0].cloneNode(true);
+  // 복제된 요소에 클래스 추가
+  cloneSlideFirst.classList.add('clone');
+  // a.appendChilde(b) a요소 뒤에 추가
+  mainSliderUl.appendChild(cloneSlideFirst);
 
-next.addEventListener('click', () => {
-  if (currentIdx === 5) currentIdx = 1;
-  else currentIdx += 1;
-  imgPosition();
-});
+  let cloneSlideLast = mainSlide[mainSlideCount - 1].cloneNode(true);
+  cloneSlideLast.classList.add('clone');
+  mainSliderUl.prepend(cloneSlideLast);
+  // 추가된 li 요소, 너비 설정
+  updateWidth();
+  // index 1을 보이게 하기 위해 ul 위치 조절
+  mainSliderUl.style.left = -mainSlideWidth + 'px';
+  // 애니메이션 효과 추가
+  setTimeout(function () {
+    mainSliderUl.classList.add('animated');
+  }, 100);
+}
+//추가된 li 요소, 너비 설정 함수
+function updateWidth() {
+  let currentSlides = document.querySelectorAll('.slider__ul li');
+  let newSlideCount = currentSlides.length;
 
-// 매장 안내 슬라이드
-const conStorePrevBtn = document.querySelector('.con__store-prevBtn');
-const conStoreNextBtn = document.querySelector('.con__store-nextBtn');
-const conStoreSlideview = document.querySelector('.con__store-slideview'); // 슬라이드 뷰
-const conStoreUl = document.querySelector('.con__store-ul');
-const conStoreUlLi = document.querySelectorAll('.con__store-ul>li');
-
-let firstSlide = conStoreUl.firstElementChild;
-let lastSlide = conStoreUl.lastElementChild;
-let clonedFirst = firstSlide.cloneNode(true);
-let clonedLast = lastSlide.cloneNode(true);
-console.log(clonedFirst);
-
-conStoreUl.appendChild(clonedFirst);
-conStoreUl.insertBefore(clonedLast, conStoreUl.firstElementChild);
-
-// 전체 화면너비에서 -100
-let autoIdx = 1;
-const lastIdx = conStoreUlLi.length; // li 갯수
-
-console.log(lastIdx);
-
-// slideShow();
-function slideShow() {
-  if (autoIdx === lastIdx) autoIdx = 0;
-  conStoreUl.style.transform = `translateX(-${(imgSize - 100) * autoIdx}px)`;
-  conStoreUl.style.transition = 'transform 0.7s ease-in-out';
-  autoIdx++;
-  setTimeout(slideShow, 2000);
+  let newWidth = mainSlideWidth * newSlideCount + 'px';
+  mainSliderUl.style.width = newWidth;
 }
 
-// function autoSlide() {
-//   conStoreUl.style.transform = `translateX(-${(imgSize - 100) * autoIdx}px)`;
-//   autoIdx++;
-// }
+mainPrev.addEventListener('click', () => {
+  console.log(mainCurrentIdx);
+  moveSlide(mainCurrentIdx - 1);
+});
+mainNext.addEventListener('click', () => {
+  console.log(mainCurrentIdx);
+  moveSlide(mainCurrentIdx + 1);
+});
+
+function moveSlide(num) {
+  // 슬라이드 한개 너비만큼 이동
+  mainSliderUl.style.left = -(mainSlideWidth * num + mainSlideWidth) + 'px';
+  mainCurrentIdx = num;
+  // 받아온 +1 한 currentIdx를 저장
+  console.log(mainCurrentIdx, mainSlideCount);
+  if (mainCurrentIdx == mainSlideCount) {
+    // 0.5초가 지나고 1번으로 바뀌도록 하기 위해
+    setTimeout(() => {
+      // 바뀌는게 보이지 않게 애니메이션 효과를 없애준다.
+      mainSliderUl.classList.remove('animated');
+      // 빠르게 앞에 1번으로 바꿔줄 것!
+      mainSliderUl.style.left = -mainSlideWidth + 'px';
+      // index는 1;
+      mainCurrentIdx = 0;
+    }, 500);
+    // 0.5초가 지나고 애니메이션 효과가 없으니 0.6초에
+    // 애니메이션을 추가해준다.
+    setTimeout(() => {
+      mainSliderUl.classList.add('animated');
+    }, 600);
+
+    // 바뀌는 과정이 보이면 안되니까 애니메이션 지우고
+    // 위치는 -800px
+  }
+  if (mainCurrentIdx == -1) {
+    setTimeout(() => {
+      mainSliderUl.classList.remove('animated');
+      mainSliderUl.style.left = -mainSlideWidth * mainSlideCount + 'px';
+      mainCurrentIdx = mainSlideCount - 1;
+    }, 500);
+    setTimeout(() => {
+      mainSliderUl.classList.add('animated');
+    }, 600);
+  }
+}
+
+const storeSliderView = document.querySelector('.con__store-slideview');
+const storeSliderUl = document.querySelector('.con__store-ul');
+const storeSlide = document.querySelectorAll('.con__store-ul li');
+const storeSlideCount = mainSlide.length;
+let storeCurrentIdx = 0;
+let storeSlideWidth = window.innerWidth;
+const storePrev = document.querySelector('.con__store-prevBtn');
+const storeNext = document.querySelector('.con__store-nextBtn');

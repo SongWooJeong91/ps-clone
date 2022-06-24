@@ -1,133 +1,30 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BASE - multiple slide loop</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      li {
-        list-style: none;
-      }
-      .side_wrapper {
-        margin: 0 auto;
-        width: 800px;
-        height: 400px;
-        border: 1px solid #ccc;
-        position: relative;
-        top: 100px;
-      }
-      .slides {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-      }
-      .slides.animated {
-        transition: 0.5s ease-out;
-      }
-      .slides li {
-        width: 800px;
-        height: 400px;
-      }
-      .controls {
-        width: 300px;
-        position: absolute;
-        top: 530px;
-        left: 46%;
-      }
-      .controls span {
-        width: 100px;
-        padding: 10px 20px;
-        background: #2a2a2a;
-        color: #fff;
-      }
-    </style>
+    <title>Document</title>
   </head>
   <body>
-    <div class="side_wrapper">
-      <ul class="slides">
-        <li style="background: tomato">slide 01</li>
-        <li style="background: orange">slide 02</li>
-        <li style="background: yellowgreen">slide 03</li>
-        <li style="background: cadetblue">slide 04</li>
-        <li style="background: violet">slide 05</li>
-      </ul>
-    </div>
-    <p class="controls">
-      <span class="prev">prev</span>
-      <span class="next">next</span>
-    </p>
     <script>
-      // 슬라이드의 전체
-      const $slides = document.querySelector('.slides');
-      // 슬라이드가 보여질 영역
-      const $sideWrapper = document.querySelector('.side_wrapper');
-      const $slide = document.querySelectorAll('.slides li');
-      let currentIdx = 0;
-      // 슬라이드 요소 개수 : 5
-      const slideCount = $slide.length;
-      // 슬라이드 너비
-      const liWidth = 800;
-      const $prevBtn = document.querySelector('.prev');
-      const $nextBtn = document.querySelector('.next');
-
-      // 앞 뒤로 첫번째 요소, 마지막 요소 복제
-      function makeClone() {
-        // 첫번째 요소를 자식까지 복사해서 cloneSlide에 저장
-        let cloneSlideFirst = $slide[0].cloneNode(true);
-        // 복제된 요소에 클래스 추가
-        cloneSlideFirst.classList.add('clone');
-        // a.appendChilde(b) a요소 뒤에 추가
-        $slides.appendChild(cloneSlideFirst);
-
-        let cloneSlideLast = $slide[slideCount - 1].cloneNode(true);
-        cloneSlideLast.classList.add('clone');
-        $slides.prepend(cloneSlideLast);
-        // 추가된 li 요소, 너비 설정
-        updateWidth();
-        // index 1을 보이게 하기 위해 ul 위치 조절
-        $slides.style.left = '-800px';
-        // 애니메이션 효과 추가
-        setTimeout(function () {
-          $slides.classList.add('animated');
-        }, 100);
+      // 생성자
+      function Person({ name, age }) {
+        this.name = name;
+        this.age = age;
       }
-      // 추가된 li 요소, 너비 설정 함수
-      function updateWidth() {
-        let currentSlides = document.querySelectorAll('.slides li');
-        let newSlideCount = currentSlides.length;
+      Person.prototype.introduce = function () {
+        return `안녕하세요, 제 이름은 ${this.name}입니다.`;
+      };
 
-        let newWidth = liWidth * newSlideCount + 'px';
-        $slides.style.width = newWidth;
-      }
-
-      $prevBtn.addEventListener('click', () => {
-        moveSlide((currentIdx += 1));
-      });
-      $nextBtn.addEventListener('click', () => {
-        moveSlide((currentIdx -= 1));
-      });
-
-      function moveSlide(currentIdx) {
-        console.log(currentIdx, slideCount);
-        console.log(currentIdx == -slideCount);
-        $slides.style.left = liWidth * currentIdx + 'px';
-        if (currentIdx == -slideCount) {
-          setTimeout(function () {
-            $slides.classList.remove('animated');
-            $slides.style.left = '0px';
-            currentIdx = 0;
-          }, 500);
-          setTimeout(function () {
-            $slides.classList.add('animated');
-          }, 600);
-        }
-      }
+      const person = new Person({ name: '윤아준', age: 19 });
+      const { name, age } = person;
+      console.log(person.introduce()); // 안녕하세요, 제 이름은 윤아준입니다.
+      console.log(typeof Person); // function
+      console.log(typeof Person.prototype.constructor); // function
+      console.log(typeof Person.prototype.introduce); // function
+      console.log(person instanceof Person); // true
+      console.log(age);
     </script>
   </body>
 </html>
