@@ -1,59 +1,71 @@
-const conTran = document.querySelector('.con__tran'); // 콘텐츠 타이틀
-const conList = document.querySelectorAll('.con__card>li'); // 콘텐츠 카드
+const topBtn = document.querySelector('.top-btn');
+
+topBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    // 스무스 안먹음
+    behavior: 'smooth',
+  });
+});
+
+const sliderView = document.querySelector('.slider__view');
+const conTran = document.querySelector('.con__tran');
+const conCard = document.querySelector('.con__card');
+const conCardLi = document.querySelectorAll('.con__card>li');
 const conTranProduct = document.querySelector('.con__tran-product');
+const conProductUl = document.querySelector('.con__product-ul');
 const conProductUlLi = document.querySelectorAll('.con__product-ul>li');
 const conTranStore = document.querySelector('.con__tran-store');
-const conServiceWrapH3 = document.querySelector('.con__service-wrap h3');
-const conServiceUlLi = document.querySelectorAll('.con__service-ul>li');
+const coServiceWrapH3 = document.querySelector('.con__service-wrap h3');
+const conServiceUl = document.querySelectorAll('.con__service-ul>li');
 const conTranActivity = document.querySelector('.con__tran-activity');
-// 스크롤 애니메이션 함수
-const scrollAni = (ele, conY, opacityNum, transitionOp) => {
-  ele.style.transform = `translateY(${conY}px)`;
-  ele.style.opacity = opacityNum;
-  ele.style.transition = `all ${transitionOp}s ease-in-out`;
-};
-const scrollAniX = (ele, conY, opacityNum, transitionOp) => {
-  ele.style.transform = `translateX(${conY}px)`;
-  ele.style.opacity = opacityNum;
-  ele.style.transition = `all ${transitionOp}s ease-in-out`;
-};
-
 window.addEventListener('scroll', () => {
-  const scrY = window.scrollY; // 현재 스크롤 Y좌표
-  // console.log('스크롤Y 위치:', scrY);
-  if (scrY < 550) {
-    scrollAni(conTran, 200, 0, 1.4);
-  } else if (scrY < 700) {
-    scrollAni(conTran, 0, 1, 1.4);
-    conList.forEach((item, index) =>
-      scrollAni(item, 200, 1, 0.8 + index * 0.3),
-    );
-  } else if (scrY < 1380) {
-    conList.forEach((item, index) => scrollAni(item, 0, 1, 0.8 + index * 0.3));
-    scrollAni(conTranProduct, 200, 1, 1.4);
-  } else if (scrY < 1500) {
-    scrollAni(conTranProduct, 0, 1, 1.4);
-    conProductUlLi.forEach((item, index) =>
-      scrollAni(item, 200, 0, 0.8 + index * 0.3),
-    );
-  } else if (scrY < 1800) {
-    conProductUlLi.forEach((item, index) =>
-      scrollAni(item, 0, 1, 0.8 + index * 0.3),
-    );
-    scrollAni(conTranStore, 200, 0, 1.4);
-  } else if (scrY < 1856) {
-    scrollAni(conTranStore, 0, 1, 1.4);
-  } else if (scrY < 2800) {
-    scrollAniX(conServiceWrapH3, -140, 0, 1.4);
-    conServiceUlLi.forEach((item, index) => {
-      scrollAniX(item, 300, 0, 1.4 + index * 0.1);
+  let scrY = window.scrollY;
+  if (conTran.getBoundingClientRect().top - scrY < 0) {
+    conTran.style.transform = 'translateY(0px)';
+    conTran.style.opacity = '1';
+    conTran.style.transition = 'all 1.4s ease-out';
+  }
+  if (conCard.getBoundingClientRect().top - scrY < 0) {
+    conCard.style.transform = 'translateY(0px)';
+    conCardLi.forEach((card, idx) => {
+      card.style.transform = 'translateY(0px)';
+      card.style.opacity = '1';
+      card.style.transition = `all ${1 + 0.2 * idx}s ease-out`;
     });
-  } else if (scrY < 3000) {
-    scrollAniX(conServiceWrapH3, 0, 1, 1.4);
-    conServiceUlLi.forEach((item, index) => {
-      scrollAniX(item, 0, 1, 1.4 + index * 0.1);
+  }
+  if (conTranProduct.getBoundingClientRect().top - scrY < 0) {
+    conTranProduct.style.transform = 'translateY(0px)';
+    conTranProduct.style.opacity = '1';
+    conTranProduct.style.transition = 'all 1.4s ease-out';
+  }
+  if (conProductUl.getBoundingClientRect().top - scrY < 0) {
+    conProductUl.style.transform = 'translateY(0px)';
+    conProductUlLi.forEach((item, idx) => {
+      item.style.transform = 'translateY(0px)';
+      item.style.opacity = '1';
+      item.style.transition = `all ${1 + 0.2 * idx}s ease-out`;
     });
-  } else if (scrY < 3280) {
-    scrollAni(conTranActivity, 0, 1, 1.4);
+  }
+  //   여기서 부터 이상함;;
+  if (conTranStore.getBoundingClientRect().top - scrY < 0) {
+    conTranStore.style.transform = 'translateY(0px)';
+    conTranStore.style.opacity = '1';
+    conTranStore.style.transition = 'all 1.4s ease-out';
+  }
+  if (coServiceWrapH3.getBoundingClientRect().top - scrY < 0) {
+    coServiceWrapH3.style.transform = 'translateX(0px)';
+    coServiceWrapH3.style.opacity = '1';
+    coServiceWrapH3.style.transition = 'all 1.4s ease-out';
+    conServiceUl.forEach((item, idx) => {
+      item.style.transform = 'translateX(0px)';
+      item.style.opacity = '1';
+      item.style.transition = `all ${1 + 0.2 * idx}s ease-out`;
+    });
+  }
+  if (conTranActivity.getBoundingClientRect().top - scrY < 0) {
+    conTranActivity.style.transform = 'translateY(0px)';
+    conTranActivity.style.opacity = '1';
+    conTranActivity.style.transition = 'all 1.4s ease-out';
   }
 });

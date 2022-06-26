@@ -1,6 +1,164 @@
+.slider__view {
+  width: 100%;
+  height: 870px;
+  position: relative;
+  top: 80px;
+  overflow: hidden;
+  margin-bottom: 60px;
+  display: inline-block;
+}
+
+.slider__view ul {
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slider__view > ul > li {
+  width: 100vw;
+  height: 100%;
+}
+.slider__box,
+.slider__box-01 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.slider__ul.animated {
+  transition: 0.5s ease-out;
+}
+/* 백그라운드 이미지 */
+.main__slide01 .slider__box-01 {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img02.jpg')
+    no-repeat center/cover;
+}
+.main__slide02 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img03.jpg')
+    no-repeat center/cover;
+}
+.main__slide03 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img04.jpg')
+    no-repeat center/cover;
+}
+.main__slide04 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img05.jpg')
+    no-repeat center/cover;
+}
+.main__slide05 .slider__box {
+  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img06.jpg')
+    no-repeat center/cover;
+}
+
+.slide__textbox-01 {
+  position: absolute;
+  top: 20%;
+}
+
+.slide__textbox-01 p {
+  font-size: 32px;
+  color: #353535;
+  letter-spacing: -0.06em;
+  line-height: 1.7;
+  font-weight: 400;
+  text-align: center;
+  font-family: 'Noto Sans Kr', sans-serif;
+}
+.slide__textbox-01 h3 {
+  font-size: 50px;
+  color: #333;
+  padding: 20px 0;
+  text-align: center;
+  letter-spacing: -0.06em;
+  line-height: 1.4;
+  font-family: 'Noto Sans Kr', sans-serif;
+}
+
+.slide__textbox {
+  text-align: left;
+  position: absolute;
+  top: 38%;
+  left: 0;
+  margin-left: 100px;
+}
+.slide__textbox p {
+  font-family: 'Noto Sans Kr', sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.06em;
+  line-height: 1.7;
+  font-weight: 400;
+}
+.slide__textbox h3 {
+  font-family: 'Noto Sans Kr', sans-serif;
+  font-size: 50px;
+  margin-top: 20px;
+  letter-spacing: -0.06em;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* 폰트 스타일 */
+.flo__color {
+  color: #4346f7;
+}
+.h3__align {
+  display: flex;
+  align-items: center;
+}
+.slide__textbox-01 h3 strong {
+  color: #ea002c;
+  font-weight: 500;
+}
+
+.wavve__color,
+.books__color {
+  color: #fff;
+}
+.coloring {
+  font-size: 65px !important;
+  color: #ff545c;
+}
+.books {
+  font-size: 65px !important;
+}
+.coloring img,
+.books img {
+  margin-top: 20px;
+}
+
+.slide__btnbox {
+  z-index: 10;
+}
+.slide__btnbox button {
+  width: 20px;
+  height: 38px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.slide__btnbox .prev {
+  position: absolute;
+  top: 57%;
+  left: 2%;
+  background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_prev.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.slide__btnbox .next {
+  position: absolute;
+  top: 57%;
+  right: 2%;
+  background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_next.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .con__wrap {
   margin-top: 150px;
-  padding: 0 30px;
+  border: 1px solid red;
 }
 .con__tran {
   transform: translateY(200px);
@@ -48,6 +206,8 @@
 }
 .con__card {
   display: flex;
+  padding: 0 30px;
+  transform: translateY(200px);
 }
 .con__card > li {
   display: flex;
@@ -56,6 +216,7 @@
   width: 20%;
   height: 493px;
   transform: translateY(200px);
+  opacity: 0;
   overflow: hidden;
 }
 .con__card > li:first-child {
@@ -268,6 +429,7 @@
 .con__product-ul {
   display: flex;
   padding: 0 30px;
+  transform: translateY(200px);
 }
 
 .con__product-ul li {
@@ -331,13 +493,17 @@
   margin: 0 0 60px;
 }
 .con__store-slideview {
+  width: calc(100%-100px);
   height: 590px;
   margin: 0 50px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid red;
 }
 .con__store-ul {
   display: flex;
+}
+.con__store-ul li a img {
+  width: calc(100%-100px);
 }
 /* .con__store-slideview {
   width: 1163px;
@@ -390,6 +556,7 @@ button {
   display: flex;
   overflow: hidden;
   margin: 180px 0 0 0;
+  border: 1px solid red;
 }
 .con__service-wrap h3 {
   font-size: 27px;
@@ -447,6 +614,10 @@ button {
   border-radius: 45px;
   background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_arrow.png)
     no-repeat right 10% top 50%;
+}
+.con__service-btnbox li a:hover {
+  border: 1px solid #222;
+  color: #222;
 }
 /* 사회적 가치 활동 */
 .con__tran-activity {

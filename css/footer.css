@@ -4,6 +4,8 @@
   padding: 50px 30px;
   font-size: 17px;
   margin: 150px 0 0;
+  position: relative;
+  overflow: hidden;
 }
 .footer__menu {
   display: flex;
@@ -49,4 +51,55 @@
 }
 .footer__connect li {
   margin: 0 10px 0 0;
+}
+/* footer sk menu */
+.footer__skmenu {
+  width: 300px;
+  height: 45px;
+  background: #ea002c;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 16px;
+  line-height: 1.7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  z-index: 1;
+}
+.footer__icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: 16px;
+  right: 90px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+.footer__skmenu-sub {
+  width: 300px;
+  position: absolute;
+  bottom: -225px;
+  right: 0;
+  background: #c30025;
+  transition: all 0.3s ease-in-out;
+}
+.footer__skmenu-sub li {
+  border: 1px solid transparent;
+}
+.footer__skmenu-sub li a {
+  display: inline-block;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 16px;
+  line-height: 1.7;
+  font-size: 17px;
+}
+.footer__skmenu-sub li a:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
 }

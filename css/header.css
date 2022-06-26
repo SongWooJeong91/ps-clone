@@ -1,25 +1,49 @@
-/* submenu-background */
-header {
-  position: relative;
-  background-color: #fff;
-}
-header .header__wrap {
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  padding: 0 30px;
+.header {
   width: 100%;
-  align-items: center;
-  font-size: 18px;
-  background-color: #fff;
-  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 90;
 }
-header .header__wrap .header__logo {
+.animated {
+  transition: all 1s ease-in-out;
+}
+.header__backColor-top {
+  position: absolute;
+  top: -240px;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  z-index: -1;
+}
+.header__backColor-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 400px);
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
+.header__wrap {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 30px;
+  background: #fff;
+}
+.header__logo {
   width: 200px;
-  background-color: #fff;
 }
 .st0 {
   fill: red;
@@ -31,84 +55,79 @@ header .header__wrap .header__logo {
   fill: #77787b;
 }
 
-nav .nav__f-ul {
+/* nav menu */
+.nav__menu {
   display: flex;
+}
+.nav__menu-list {
   height: 80px;
-}
-nav .nav__f-ul > li {
   padding: 0 24px;
-  height: 100%;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
-}
-nav .nav__tit {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-}
-nav .nav__tit span {
-  display: inline-block;
-  padding: 0 20px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #222;
-  font-family: 'Noto Sans Kr', sans-serif;
+  line-height: 80px;
+  box-sizing: border-box;
 }
 
-.submenu__wrap {
+.nav__tit {
   width: 100%;
-  height: 320px;
-  background-color: #fff;
-  position: absolute;
-  top: -240px;
-  left: 0;
-  z-index: -1;
-  border-top: 1px solid #ddd;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
 }
+.menu__tit-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.menu__tit-under {
+  display: block;
+  width: 104px;
+  height: 3px;
+  margin: 0 24px;
+  background: #e0002a;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease-in-out;
+  transform-origin: 0% 50%;
+}
+
 .sub__nav {
-  width: 100%;
-  padding: 26px 0;
   position: absolute;
-  top: -240px;
+  top: -239px;
   left: 0;
-  z-index: -1;
-  transition-delay: 0.8s;
+  width: 150px;
+  padding: 26px 0;
+  background: #fff;
+  /* z-index: 0; */
+  z-index: 0;
 }
-.sub__nav li {
-  text-align: center;
+.sub__nav > li {
   padding: 8px 0;
-  font-size: 17px;
-  line-height: 1.7;
 }
-.sub__nav > li a {
-  display: inline-block;
+.sub__nav > li > a {
+  display: block;
+  width: 100%;
+  height: 26px;
   font-size: 16px;
-  color: #777;
-  height: 24px;
-  line-height: 1.7;
-  letter-spacing: -0.05em;
-  transform: perspective(1px) translateZ(0);
+  text-align: center;
+  color: #777777;
+  font-weight: 400;
+  line-height: 26px;
+}
+.nav__menu-list:hover .menu__tit-text {
+  color: #e0002a;
+}
+.nav__menu-list:hover .menu__tit-under {
+  transform: scaleX(1);
 }
 
 .sub__nav > li:hover a {
   color: #222;
 }
-
-.nav__f-ul:hover .header__wrap {
-  border-bottom: 1px solid #ddd;
-}
-/* Nav title underline */
-.tit__underline {
-  display: block;
-  border-bottom: solid 3px #e0002a;
-  transform: translateY(29px) scaleX(0);
-  transition: transform 0.25s ease-in-out;
-  transform-origin: 0% 50%;
+.sub__nav > li:hover .menu__tit-under {
+  transform: scaleX(1);
 }
 
 /* 오시는 길 */
@@ -118,9 +137,36 @@ header .h__directions a {
   padding: 0 0 0 36px;
   font-size: inherit;
   color: #666;
-  font-family: 'Noto Sans Kr', sans-serif;
   letter-spacing: -0.05em;
 }
 header .h__directions:hover a {
   color: #222;
+}
+
+/* top button */
+.top-btn {
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: 999;
+  cursor: pointer;
+}
+.top-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  margin-top: -2px;
+  margin-left: -6px;
+  box-sizing: border-box;
 }
