@@ -167,7 +167,7 @@
       </header>
       <a href="#" class="top-btn"></a>
       <section>
-        <div class="slider__view" style="border: 1px solid red">
+        <div class="slider__view">
           <ul class="slider__ul">
             <li class="main__slide01">
               <div class="slider__box-01">
@@ -298,7 +298,7 @@
                     <strong>420여개</strong>
                     (기준 : ‘21년 3월 末)
                   </div>
-                  <span class="con__attr02-span circle__position"
+                  <span class="con__attr02-span"
                     >고객이 있는 곳이<br />
                     우리 회사의 매장
                   </span>
@@ -447,36 +447,53 @@
             <h2>매장안내</h2>
           </div>
           <div class="con__store-slideview">
-            <div class="con__store-btnbox">
-              <button class="con__store-prevBtn"></button>
-              <button class="con__store-nextBtn"></button>
+            <div class="con__store-prevBtn">
+              <button></button>
             </div>
-            <ul class="con__store-ul">
-              <li>
-                <a href="">
-                  <img
-                    src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img03.jpg"
-                  />
-                  <p>마포 잼 플레이스</p>
-                </a>
-              </li>
-              <li>
-                <a href=""
-                  ><img
-                    src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img01.jpg"
-                  />
-                  <p>홍대 T-Factory</p></a
-                >
-              </li>
-              <li>
-                <a href=""
-                  ><img
-                    src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img02.jpg"
-                  />
-                  <p>보신각점</p></a
-                >
-              </li>
-            </ul>
+            <div class="con__store-nextBtn">
+              <button></button>
+            </div>
+            <div class="con__store-imgView">
+              <ul class="con__store-ul">
+                <li>
+                  <a href="">
+                    <img
+                      src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img03.jpg"
+                      class="con__store-img"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img01.jpg"
+                      class="con__store-img"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon02_img02.jpg"
+                      class="con__store-img"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="con__store-textwrap">
+              <ul class="con__store-text">
+                <li>
+                  <a href="#">마포 잼 플레이스</a>
+                </li>
+                <li>
+                  <a href="#">홍대 T-Factory</a>
+                </li>
+                <li>
+                  <a href="#">보신각점</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -679,6 +696,7 @@
     </div>
     <script src="../js/header.js"></script>
     <script src="../js/slider.js"></script>
+    <script src="../js/autoSlide.js"></script>
     <script src="../js/scroll.js"></script>
     <script src="../js/footer.js"></script>
   </body>

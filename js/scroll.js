@@ -1,11 +1,8 @@
 const topBtn = document.querySelector('.top-btn');
 
 topBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    // 스무스 안먹음
-    behavior: 'smooth',
-  });
+  console.log('스크롤');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 const sliderView = document.querySelector('.slider__view');
@@ -21,6 +18,15 @@ const conServiceUl = document.querySelectorAll('.con__service-ul>li');
 const conTranActivity = document.querySelector('.con__tran-activity');
 window.addEventListener('scroll', () => {
   let scrY = window.scrollY;
+  // console.log('scrY', scrY);
+  // console.log(
+  //   'conTranStore.getBoundingClientRect().top',
+  //   conTranStore.getBoundingClientRect().top,
+  // );
+  // console.log(
+  //   'conTranStore.getBoundingClientRect().height',
+  //   conTranStore.getBoundingClientRect().height,
+  // );
   if (conTran.getBoundingClientRect().top - scrY < 0) {
     conTran.style.transform = 'translateY(0px)';
     conTran.style.opacity = '1';
@@ -48,7 +54,10 @@ window.addEventListener('scroll', () => {
     });
   }
   //   여기서 부터 이상함;;
-  if (conTranStore.getBoundingClientRect().top - scrY < 0) {
+  if (
+    conTranStore.getBoundingClientRect().top <
+    conTranStore.getBoundingClientRect().height / 1.5
+  ) {
     conTranStore.style.transform = 'translateY(0px)';
     conTranStore.style.opacity = '1';
     conTranStore.style.transition = 'all 1.4s ease-out';

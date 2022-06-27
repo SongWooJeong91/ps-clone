@@ -8,8 +8,10 @@
   justify-content: center;
   z-index: 90;
 }
-.animated {
-  transition: all 1s ease-in-out;
+
+.sub__nav.animated,
+.header__backColor-top.animated {
+  transition: all 0.8s ease-in-out;
 }
 .header__backColor-top {
   position: absolute;
@@ -23,12 +25,13 @@
 }
 .header__backColor-bottom {
   position: absolute;
-  bottom: 0;
+  top: 700px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 400px);
+  height: calc(100vh - 360px);
   background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
 }
 .header__wrap {
   display: flex;
@@ -41,6 +44,7 @@
   left: 0;
   padding: 0 30px;
   background: #fff;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
 }
 .header__logo {
   width: 200px;
@@ -73,10 +77,12 @@
   padding: 0 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .menu__tit-text {
   font-size: 18px;
   font-weight: 500;
+  color: #222;
 }
 
 .menu__tit-under {
@@ -89,7 +95,7 @@
   bottom: 0;
   left: 0;
   transform: scaleX(0);
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   transform-origin: 0% 50%;
 }
 
@@ -100,8 +106,7 @@
   width: 150px;
   padding: 26px 0;
   background: #fff;
-  /* z-index: 0; */
-  z-index: 0;
+  z-index: -1;
 }
 .sub__nav > li {
   padding: 8px 0;
@@ -116,18 +121,19 @@
   font-weight: 400;
   line-height: 26px;
 }
+/* menu hover */
 .nav__menu-list:hover .menu__tit-text {
   color: #e0002a;
 }
-.nav__menu-list:hover .menu__tit-under {
-  transform: scaleX(1);
-}
-
-.sub__nav > li:hover a {
-  color: #222;
-}
+.nav__menu-list:hover .menu__tit-under,
 .sub__nav > li:hover .menu__tit-under {
   transform: scaleX(1);
+}
+.nav__menu-list:hover .header__backColor-bottom {
+  opacity: 1;
+}
+.sub__nav > li:hover a {
+  color: #222;
 }
 
 /* 오시는 길 */
@@ -157,16 +163,16 @@ header .h__directions:hover a {
 }
 .top-btn::after {
   content: '';
+  border: 0;
+  margin-top: -2px;
+  margin-left: -6px;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 10px;
   height: 10px;
-  border: 0;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
   transform: rotate(-45deg);
-  margin-top: -2px;
-  margin-left: -6px;
   box-sizing: border-box;
 }

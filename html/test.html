@@ -5,26 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      div {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #222;
+        box-sizing: border-box;
+      }
+      .box1 {
+        position: absolute;
+        top: -50px;
+        left: 50px;
+        z-index: -1;
+        background-color: tomato;
+      }
+      .box2 {
+        position: absolute;
+        top: 50px;
+        left: 90px;
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .box3 {
+        position: absolute;
+        top: 200px;
+        left: 130px;
+        z-index: -1;
+        background-color: tomato;
+      }
+    </style>
   </head>
   <body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
     <script>
-      // 생성자
-      function Person({ name, age }) {
-        this.name = name;
-        this.age = age;
-      }
-      Person.prototype.introduce = function () {
-        return `안녕하세요, 제 이름은 ${this.name}입니다.`;
-      };
-
-      const person = new Person({ name: '윤아준', age: 19 });
-      const { name, age } = person;
-      console.log(person.introduce()); // 안녕하세요, 제 이름은 윤아준입니다.
-      console.log(typeof Person); // function
-      console.log(typeof Person.prototype.constructor); // function
-      console.log(typeof Person.prototype.introduce); // function
-      console.log(person instanceof Person); // true
-      console.log(age);
+      // const box2 = document.querySelector('.box2');
+      // const box3 = document.querySelector('.box3');
+      // const box4 = document.querySelector('.box4');
+      // console.log(window.getComputedStyle(box3).opacity);
+      // let intNum = 0;
+      // testFn((intNum += 1));
+      // function testFn(num) {
+      //   console.log('testFn 실행', num);
+      //   setTimeout(testFn.bind(intNum++), 3000);
+      // }
     </script>
   </body>
 </html>

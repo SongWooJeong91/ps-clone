@@ -1,3 +1,4 @@
+const headerWrap = document.querySelector('.header__wrap');
 const navMenu = document.querySelector('.nav__menu');
 const subNav = document.querySelectorAll('.sub__nav');
 const headerBackColorTop = document.querySelector('.header__backColor-top');
@@ -6,28 +7,40 @@ const headerBackColorBottom = document.querySelector(
 );
 const menuTitUnder = document.querySelectorAll('.menu__tit-under');
 
-function backColorTopHandler(boxTop, topBoxShadow, addClass) {
-  headerBackColorTop.style.top = boxTop;
-  headerBackColorTop.style.boxShadow = topBoxShadow;
-  headerBackColorTop.classList.add(addClass);
+function menuHandler(ele, boxTop) {
+  ele.style.top = boxTop;
+  ele.classList.add('animated');
+}
+function menuBackHandler(ele, visibilityV, topV, transitionV) {
+  ele.style.visibility = visibilityV;
+  headerBackColorBottom.style.top = topV;
+  headerBackColorBottom.style.transition = transitionV;
 }
 
 navMenu.addEventListener('mouseover', () => {
   subNav.forEach((item) => {
-    item.style.top = '81px';
-    item.classList.add('animated');
+    menuHandler(item, '81px');
   });
-  backColorTopHandler('80px', '0 5px 5px rgb(0 0 0 / 10%)', 'animated');
-  headerBackColorBottom.style.opacity = '1';
-  headerBackColorBottom.style.transition = 'all 1.2s ease-in-out';
+  menuHandler(headerBackColorTop, '80px');
+  menuBackHandler(
+    headerBackColorBottom,
+    'visible',
+    '400px',
+    'all 0.7s ease-in-out',
+  );
+  headerWrap.style.boxShadow = 'none';
 });
 
 navMenu.addEventListener('mouseout', () => {
   subNav.forEach((item) => {
-    item.style.top = '-239px';
-    item.classList.add('animated');
+    menuHandler(item, '-239px');
   });
-  backColorTopHandler('-240px', 'none', 'animated');
-  headerBackColorBottom.style.opacity = '0';
-  headerBackColorBottom.style.transition = 'all 0.1s ease-in-out';
+  menuHandler(headerBackColorTop, '-240px');
+  menuBackHandler(
+    headerBackColorBottom,
+    'hidden',
+    '700px',
+    'all 0.3s ease-in-out',
+  );
+  headerWrap.style.boxShadow = '0 5px 5px rgb(0 0 0 / 10%)';
 });

@@ -1,4 +1,3 @@
-const mainSliderView = document.querySelector('.slider__view');
 const mainSliderUl = document.querySelector('.slider__ul');
 const mainSlide = document.querySelectorAll('.slider__ul li');
 const mainSlideCount = mainSlide.length;
@@ -8,9 +7,13 @@ const mainPrev = document.querySelector('.prev');
 const mainNext = document.querySelector('.next');
 
 // 윈도우 크기 변화 감지해서 slideWidth 변경
+
+// mainSlideWidth = eleWidth.observe(storeSliderView);
+
 window.addEventListener('resize', () => {
   mainSlideWidth = window.innerWidth;
 });
+
 makeClone();
 // // 앞 뒤로 첫번째 요소, 마지막 요소 복제
 function makeClone() {
@@ -43,11 +46,9 @@ function updateWidth() {
 }
 
 mainPrev.addEventListener('click', () => {
-  console.log(mainCurrentIdx);
   moveSlide(mainCurrentIdx - 1);
 });
 mainNext.addEventListener('click', () => {
-  console.log(mainCurrentIdx);
   moveSlide(mainCurrentIdx + 1);
 });
 
@@ -56,7 +57,6 @@ function moveSlide(num) {
   mainSliderUl.style.left = -(mainSlideWidth * num + mainSlideWidth) + 'px';
   mainCurrentIdx = num;
   // 받아온 +1 한 currentIdx를 저장
-  console.log(mainCurrentIdx, mainSlideCount);
   if (mainCurrentIdx == mainSlideCount) {
     // 0.5초가 지나고 1번으로 바뀌도록 하기 위해
     setTimeout(() => {
@@ -87,12 +87,3 @@ function moveSlide(num) {
     }, 600);
   }
 }
-
-const storeSliderView = document.querySelector('.con__store-slideview');
-const storeSliderUl = document.querySelector('.con__store-ul');
-const storeSlide = document.querySelectorAll('.con__store-ul li');
-const storeSlideCount = mainSlide.length;
-let storeCurrentIdx = 0;
-let storeSlideWidth = window.innerWidth;
-const storePrev = document.querySelector('.con__store-prevBtn');
-const storeNext = document.querySelector('.con__store-nextBtn');

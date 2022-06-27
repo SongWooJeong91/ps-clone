@@ -1,164 +1,9 @@
-.slider__view {
-  width: 100%;
-  height: 870px;
-  position: relative;
-  top: 80px;
-  overflow: hidden;
-  margin-bottom: 60px;
-  display: inline-block;
-}
-
-.slider__view ul {
-  height: 100%;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.slider__view > ul > li {
-  width: 100vw;
-  height: 100%;
-}
-.slider__box,
-.slider__box-01 {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-.slider__ul.animated {
-  transition: 0.5s ease-out;
-}
-/* 백그라운드 이미지 */
-.main__slide01 .slider__box-01 {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img02.jpg')
-    no-repeat center/cover;
-}
-.main__slide02 .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img03.jpg')
-    no-repeat center/cover;
-}
-.main__slide03 .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img04.jpg')
-    no-repeat center/cover;
-}
-.main__slide04 .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img05.jpg')
-    no-repeat center/cover;
-}
-.main__slide05 .slider__box {
-  background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img06.jpg')
-    no-repeat center/cover;
-}
-
-.slide__textbox-01 {
-  position: absolute;
-  top: 20%;
-}
-
-.slide__textbox-01 p {
-  font-size: 32px;
-  color: #353535;
-  letter-spacing: -0.06em;
-  line-height: 1.7;
-  font-weight: 400;
-  text-align: center;
-  font-family: 'Noto Sans Kr', sans-serif;
-}
-.slide__textbox-01 h3 {
-  font-size: 50px;
-  color: #333;
-  padding: 20px 0;
-  text-align: center;
-  letter-spacing: -0.06em;
-  line-height: 1.4;
-  font-family: 'Noto Sans Kr', sans-serif;
-}
-
-.slide__textbox {
-  text-align: left;
-  position: absolute;
-  top: 38%;
-  left: 0;
-  margin-left: 100px;
-}
-.slide__textbox p {
-  font-family: 'Noto Sans Kr', sans-serif;
-  font-size: 32px;
-  letter-spacing: -0.06em;
-  line-height: 1.7;
-  font-weight: 400;
-}
-.slide__textbox h3 {
-  font-family: 'Noto Sans Kr', sans-serif;
-  font-size: 50px;
-  margin-top: 20px;
-  letter-spacing: -0.06em;
-  line-height: 1.4;
-  font-weight: 400;
-}
-
-/* 폰트 스타일 */
-.flo__color {
-  color: #4346f7;
-}
-.h3__align {
-  display: flex;
-  align-items: center;
-}
-.slide__textbox-01 h3 strong {
-  color: #ea002c;
-  font-weight: 500;
-}
-
-.wavve__color,
-.books__color {
-  color: #fff;
-}
-.coloring {
-  font-size: 65px !important;
-  color: #ff545c;
-}
-.books {
-  font-size: 65px !important;
-}
-.coloring img,
-.books img {
-  margin-top: 20px;
-}
-
-.slide__btnbox {
-  z-index: 10;
-}
-.slide__btnbox button {
-  width: 20px;
-  height: 38px;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-}
-.slide__btnbox .prev {
-  position: absolute;
-  top: 57%;
-  left: 2%;
-  background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_prev.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.slide__btnbox .next {
-  position: absolute;
-  top: 57%;
-  right: 2%;
-  background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_next.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+.animated {
+  transition: all 0.5s ease-out;
 }
 
 .con__wrap {
   margin-top: 150px;
-  border: 1px solid red;
 }
 .con__tran {
   transform: translateY(200px);
@@ -170,7 +15,7 @@
   padding-top: 15px 0 0;
   margin: 0 0 60px;
   text-align: center;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   letter-spacing: -0.05em;
   color: #222;
   font-weight: 600;
@@ -196,7 +41,7 @@
   color: #222;
   font-size: 24px;
   letter-spacing: -0.05em;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   margin: 0 0 60px;
   text-align: center;
   padding-top: 15px 0 0;
@@ -346,7 +191,6 @@
   margin: 30px 0 0;
   font-size: 18px;
   color: #fff;
-  line-height: 1.3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -356,7 +200,6 @@
   content: '“';
   font-size: 42px;
   color: #fff;
-  line-height: 1;
   padding-top: 13px;
   padding: 13px 20px 0 0;
 }
@@ -364,7 +207,6 @@
   content: '”';
   font-size: 42px;
   color: #fff;
-  line-height: 1;
   padding: 13px 0 0 13px;
 }
 .con__prog-ul > li {
@@ -394,10 +236,13 @@
   color: #fff;
   font-size: 18px;
   font-weight: 400;
+  padding: 4px;
 }
 .prod__li {
   display: flex;
   align-items: top;
+  position: relative;
+  left: -11px;
 }
 .prod__li::before {
   content: '“';
@@ -405,7 +250,7 @@
   color: #fff;
   line-height: 1;
   position: relative;
-  top: 2px;
+  top: 6px;
 }
 .prod__li::after {
   content: '”';
@@ -413,7 +258,7 @@
   color: #fff;
   line-height: 1;
   position: relative;
-  bottom: 0px;
+  top: 6px;
 }
 .circle__position {
   position: relative;
@@ -485,71 +330,95 @@
 }
 
 /* 매장안내 */
+
 .con__tran-store {
   transform: translateY(200px);
   opacity: 0;
 }
 .con__tran-store h2 {
-  margin: 0 0 60px;
+  margin: 0 0 60px 0;
 }
 .con__store-slideview {
-  width: calc(100%-100px);
-  height: 590px;
-  margin: 0 50px;
-  /* overflow: hidden; */
-  border: 1px solid red;
-}
-.con__store-ul {
-  display: flex;
-}
-.con__store-ul li a img {
-  width: calc(100%-100px);
-}
-/* .con__store-slideview {
-  width: 1163px;
-  height: 493px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.con__store-imgView {
   overflow: hidden;
+  width: calc(100% - 100px);
+  height: 493px;
+  margin: 0 50px;
+  position: relative;
 }
 .con__store-ul {
   display: flex;
+  width: calc(100% * 3);
   position: absolute;
   top: 0;
   left: 0;
 }
 .con__store-ul li {
   width: 100%;
-  height: 100%;
+  height: 493px;
 }
-.con__store-ul li a {
+.con__store-ul > li > a {
   width: 100%;
   height: 100%;
-  display: block;
-} */
-.con__store-ul li a p {
-  border: 1px solid red;
+  display: inline-block;
+}
+.con__store-img {
+  width: 100%;
+  height: 100%;
+}
+.con__store-textwrap {
+  width: 320px;
+  display: inline-block;
+  overflow: hidden;
+}
+.con__store-text {
+  display: flex;
+  width: calc(100% * 3);
+  transform: translateX(0px);
+}
+.con__store-text li {
+  width: 320px;
+  height: 54px;
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   text-align: center;
-  margin-top: 20px;
+  padding-top: 20px;
+}
+.con__store-prevBtn {
+  position: absolute;
+  bottom: 0;
+  left: 36%;
+  height: 54px;
+  padding-top: 26px;
+}
+.con__store-nextBtn {
+  position: absolute;
+  bottom: 0;
+  right: 36%;
+  height: 54px;
+  padding-top: 26px;
 }
 button {
   border: none;
   outline: none;
   width: 11px;
   height: 18px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  cursor: pointer;
 }
-.con__store-nextBtn {
+.con__store-nextBtn button {
   background: url('https://www.psnmarketing.com/images/main/left.svg') no-repeat;
 }
-.con__store-prevBtn {
+.con__store-prevBtn button {
   background: url('https://www.psnmarketing.com/images/main/right.svg')
     no-repeat;
 }
+
 /* PS&Marketing 서비스 */
 .con__service-wrap {
   padding: 0 30px;
@@ -562,7 +431,7 @@ button {
   font-size: 27px;
   font-weight: 600;
   width: 330px;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   transform: translateX(-140px);
   opacity: 0;
 }
@@ -579,13 +448,13 @@ button {
 .con__service-wrap > ul > li h2 {
   font-size: 20px;
   font-weight: 600;
-  line-height: 1.7;
+  /* line-height: 1.7; */
 }
 .con__service-wrap > ul > li p {
   font-size: 17px;
   color: #444;
   padding: 10px 0;
-  line-height: 1.7;
+  /* line-height: 1.7; */
 }
 
 .con__service-wrap > ul > li:first-child {
@@ -657,13 +526,13 @@ button {
 .activity__text {
   font-size: 17px;
   font-weight: 400;
-  line-height: 1.7;
+  /* line-height: 1.7; */
 }
 .activity__more {
   font-size: 15px;
   padding: 0 30px 0 0;
   margin-right: 30px;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   color: #777;
   float: right;
   clear: both;

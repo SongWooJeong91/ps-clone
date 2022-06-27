@@ -1,20 +1,4 @@
 @import url(./header.css);
-/* @import url(./slider.css); */
+@import url(./slide.css);
 @import url(./contents.css);
 @import url(./footer.css);
-h1,
-h2,
-h3,
-h4,
-li,
-p,
-span,
-a,
-a:hover,
-strong {
-  font-family: 'Noto Sans Kr', sans-serif;
-  letter-spacing: -0.05em;
-  color: #222;
-  font-weight: 400;
-  word-break: keep-all;
-}
