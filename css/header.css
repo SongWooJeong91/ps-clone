@@ -25,10 +25,10 @@
 }
 .header__backColor-bottom {
   position: absolute;
-  top: 700px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 360px);
+  height: calc(100vh);
   background: rgba(0, 0, 0, 0.3);
   z-index: -1;
   visibility: hidden;

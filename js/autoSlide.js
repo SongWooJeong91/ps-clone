@@ -13,38 +13,44 @@ const conStoreTextwrap = document.querySelector('.con__store-textwrap');
 const conStoreTextUl = document.querySelector('.con__store-text');
 const conStoreTextSlide = document.querySelectorAll('.con__store-text li');
 const storeTextCount = conStoreTextSlide.length;
-const storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
+let storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
 
-autoMakeClone();
-// // 앞 뒤로 첫번째 요소, 마지막 요소 복제
-function autoMakeClone() {
+// 윈도우 사이즈 변화 시 width 재설정
+window.onresize = function () {
+  storeSlideWidth = conStoreImgView.getBoundingClientRect().width;
+  storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
+  updateWidth();
+  updatePosition();
+};
+
+autoMakeClone(storeSlide[0], storeSliderUl, storeSlide[storeSlideCount - 1]);
+autoMakeClone(
+  conStoreTextSlide[0],
+  conStoreTextUl,
+  conStoreTextSlide[storeTextCount - 1],
+);
+
+// 첫번째 요소, 마지막 요소 복제
+function autoMakeClone(FirstSlideLi, slideUl, lastSlideLi) {
   // 첫번째 요소를 자식까지 복사해서 cloneSlide에 저장
-  let cloneSlideFirstAuto = storeSlide[0].cloneNode(true);
-  let cloneTextFirstAuto = conStoreTextSlide[0].cloneNode(true);
+  let cloneSlideFirst = FirstSlideLi.cloneNode(true);
   // 복제된 요소에 클래스 추가
-  cloneSlideFirstAuto.classList.add('clone');
-  cloneTextFirstAuto.classList.add('clone');
+  cloneSlideFirst.classList.add('clone');
   // a.appendChilde(b) a요소 뒤에 추가
-  storeSliderUl.appendChild(cloneSlideFirstAuto);
-  conStoreTextUl.appendChild(cloneTextFirstAuto);
+  slideUl.appendChild(cloneSlideFirst);
 
-  let cloneSlideLastAuto = storeSlide[storeSlideCount - 1].cloneNode(true);
-  let cloneTextLastAuto = conStoreTextSlide[storeTextCount - 1].cloneNode(true);
+  let cloneSlideLast = lastSlideLi.cloneNode(true);
 
-  cloneSlideLastAuto.classList.add('clone');
-  cloneTextLastAuto.classList.add('clone');
+  cloneSlideLast.classList.add('clone');
 
-  storeSliderUl.prepend(cloneSlideLastAuto);
-  conStoreTextUl.prepend(cloneTextLastAuto);
+  slideUl.prepend(cloneSlideLast);
   // 추가된 li 요소, 너비 설정
   updateWidth();
-  // index 1을 보이게 하기 위해 ul 위치 조절
-  storeSliderUl.style.left = -storeSlideWidth + 'px';
-  conStoreTextUl.style.transform = `translateX(${-storeTextWidth}px)`;
+  // 추가된 요소 위치
+  updatePosition();
   // 애니메이션 효과 추가
   setTimeout(function () {
-    storeSliderUl.classList.add('animated');
-    conStoreTextUl.classList.add('animated');
+    slideUl.classList.add('animated');
   }, 100);
 }
 //추가된 li 요소, 너비 설정 함수
@@ -59,21 +65,16 @@ function updateWidth() {
   storeSliderUl.style.width = newWidthAuto;
   conStoreTextUl.style.width = newTextWidthAuto;
 }
+function updatePosition() {
+  // index 1을 보이게 하기 위해 ul 위치 조절
+  storeSliderUl.style.left = -storeSlideWidth + 'px';
+  conStoreTextUl.style.transform = `translateX(${-storeTextWidth}px)`;
+}
 
-// ---------------------------------------------
-storePrev.addEventListener('click', () => {
-  moveAutoSlide(storeCurrentIdx - 1);
-});
-storeNext.addEventListener('click', () => {
-  moveAutoSlide(storeCurrentIdx + 1);
-});
-console.log('함수 실행 전 storeCurrentIdx ', storeCurrentIdx);
+// 실행부분 ---------------------------------------------
+let timerId;
 moveAutoSlide(storeCurrentIdx);
 function moveAutoSlide(num) {
-  console.log('moveAutoSlide() 실행');
-  console.log('함수 실행 후 storeCurrentIdx ', storeCurrentIdx);
-  console.log('함수 실행 후 num ', num);
-
   // 슬라이드 한개 너비만큼 이동
   storeSliderUl.style.left = -(storeSlideWidth * num + storeSlideWidth) + 'px';
   conStoreTextUl.style.transform = `translateX(${-(
@@ -81,8 +82,6 @@ function moveAutoSlide(num) {
     storeTextWidth
   )}px)`;
   storeCurrentIdx = num;
-  console.log('매개변수 저장 후 ', num);
-  console.log('매개변수 저장 후', storeCurrentIdx);
   // 받아온 +1 한 currentIdx를 저장
   if (storeCurrentIdx == storeSlideCount) {
     // 0.5초가 지나고 1번으로 바뀌도록 하기 위해
@@ -102,9 +101,6 @@ function moveAutoSlide(num) {
       storeSliderUl.classList.add('animated');
       conStoreTextUl.classList.add('animated');
     }, 600);
-
-    // 바뀌는 과정이 보이면 안되니까 애니메이션 지우고
-    // 위치는 -800px
   }
   if (storeCurrentIdx == -1) {
     setTimeout(() => {
@@ -121,21 +117,17 @@ function moveAutoSlide(num) {
       conStoreTextUl.classList.add('animated');
     }, 600);
   }
-  // setTimeout(moveAutoSlide.bind((storeCurrentIdx += 1)), 5000);
+  timerId = setTimeout(() => {
+    storeCurrentIdx += 1;
+    moveAutoSlide(storeCurrentIdx);
+  }, 3000);
 }
 
-// width 변화 감지
-// let eleWidth = new ResizeObserver((entries) => {
-//   for (let entry of entries) {
-//     const cr = entry.contentRect; // this
-//     console.log('Element:', entry.target);
-//     console.log(`Element size: ${cr.width}px x ${cr.height}px`);
-//   }
-// });
-// eleWidth.observe(storeSliderView);
-// for (let i = 0; i < storeSlideCount; i++) {
-//   const autoSlide = setTimeout(() => {
-//     console.log('setTime 실행');
-//     storeSliderUl.style.left = `-${storeSlideWidth}px`;
-//   }, 5000);
-// }
+storePrev.addEventListener('click', () => {
+  clearTimeout(timerId);
+  moveAutoSlide(storeCurrentIdx - 1);
+});
+storeNext.addEventListener('click', () => {
+  clearTimeout(timerId);
+  moveAutoSlide(storeCurrentIdx + 1);
+});

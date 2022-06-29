@@ -8,11 +8,9 @@ const mainNext = document.querySelector('.next');
 
 // 윈도우 크기 변화 감지해서 slideWidth 변경
 
-// mainSlideWidth = eleWidth.observe(storeSliderView);
-
-window.addEventListener('resize', () => {
-  mainSlideWidth = window.innerWidth;
-});
+// window.addEventListener('resize', () => {
+//   mainSlideWidth = window.innerWidth;
+// });
 
 makeClone();
 // // 앞 뒤로 첫번째 요소, 마지막 요소 복제
@@ -51,7 +49,6 @@ mainPrev.addEventListener('click', () => {
 mainNext.addEventListener('click', () => {
   moveSlide(mainCurrentIdx + 1);
 });
-
 function moveSlide(num) {
   // 슬라이드 한개 너비만큼 이동
   mainSliderUl.style.left = -(mainSlideWidth * num + mainSlideWidth) + 'px';

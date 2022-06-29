@@ -1,289 +1,26 @@
 .animated {
   transition: all 0.5s ease-out;
 }
-
 .con__wrap {
   margin-top: 150px;
 }
-.con__tran {
-  transform: translateY(200px);
-  opacity: 0;
-}
-
-.con__wrap h2 {
-  font-size: 40px;
-  padding-top: 15px 0 0;
-  margin: 0 0 60px;
-  text-align: center;
-  /* line-height: 1.7; */
-  letter-spacing: -0.05em;
-  color: #222;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.con__wrap h2::before {
-  content: '';
-  width: 50px;
-  height: 5px;
-  background-color: #ea002c;
-}
-
-.con__wrap strong {
-  color: #222;
-  font-weight: 600;
-}
-.con__wrap .strong__red {
-  color: #ea002c;
-}
-.con__wrap p {
-  color: #222;
-  font-size: 24px;
-  letter-spacing: -0.05em;
-  /* line-height: 1.7; */
-  margin: 0 0 60px;
-  text-align: center;
-  padding-top: 15px 0 0;
-  margin-top: -40px;
-  margin-bottom: 50px;
-  font-weight: 400;
-}
-.con__card {
-  display: flex;
-  padding: 0 30px;
-  transform: translateY(200px);
-}
-.con__card > li {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 20%;
-  height: 493px;
-  transform: translateY(200px);
-  opacity: 0;
-  overflow: hidden;
-}
-.con__card > li:first-child {
-  background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img01.png')
-    no-repeat;
-}
-.con__card > li:nth-child(2) {
-  background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img02.png')
-    no-repeat;
-}
-.con__card > li:nth-child(3) {
-  background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img03.png')
-    no-repeat;
-}
-.con__card > li:nth-child(4) {
-  background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img04.png')
-    no-repeat;
-}
-.con__card > li:last-child {
-  background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img05.png')
-    no-repeat;
-}
-.con__li-box {
-  width: 100%;
-  height: 100%;
-}
-.con__card > li:hover .con__li-box {
-  background: rgba(255, 122, 0, 0.75);
-  transition: all 0.1s ease;
-}
-
-.con__card > li:hover .h3__box strong,
-.con__card > li:hover .h3__box span {
-  color: #fff;
-}
-.con__card > li:hover h3::before {
-  background-color: #fff;
-}
-.con__card > li:hover .con__card-list {
-  opacity: 1;
-}
-
-.con__card h3 {
-  display: flex;
-  line-height: 1;
-  padding: 0 0 0 16px;
-  position: absolute;
-  top: 12px;
-}
-.h3__box > strong {
-  font-size: 26px;
-  color: #9c9c9c;
-  display: block;
-  font-weight: 600;
-}
-.h3__box > strong > span {
-  color: #ea002c;
-  font-weight: 600;
-}
-.con__card h3::before {
-  content: '';
-  width: 4px;
-  height: auto;
-  background-color: #ff7a00;
-  margin: 4px 16px 0 0;
-}
-
-.h3__box > span {
-  display: block;
-  margin: 8px 0 0;
-  font-size: 15px;
-}
-.con__card-list {
-  position: absolute;
-  top: 110px;
-  left: 32px;
-  width: 100%;
-  opacity: 0;
-}
-.con__card-list > li {
-  word-break: keep-all;
-  width: 84%;
-  list-style: disc;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 300;
-  color: #fff;
-  margin-top: 16px;
-
-  /* padding: 0 0 0 15px; */
-}
-.con__card-list ul li::marker {
-  color: #fff;
-  font-size: 10px;
-}
-.list__style-none {
-  list-style: none !important;
-}
-.con__attr-sub {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 16px 0 0;
-  position: relative;
-  left: -11px;
-}
-.big__circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(255, 76, 34, 0.6);
-  line-height: 1.4;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  margin: 30px 0 0;
-}
-.big__circle strong {
-  font-weight: 600;
-  font-size: 22px;
-  color: #fff;
-  letter-spacing: 0.05em;
-}
-.con__attr02-span {
-  margin: 30px 0 0;
-  font-size: 18px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.con__attr02-span::before {
-  content: '“';
-  font-size: 42px;
-  color: #fff;
-  padding-top: 13px;
-  padding: 13px 20px 0 0;
-}
-.con__attr02-span::after {
-  content: '”';
-  font-size: 42px;
-  color: #fff;
-  padding: 13px 0 0 13px;
-}
-.con__prog-ul > li {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  font-size: 15px;
-  color: #fff;
-}
-.con__prog-circle {
-  background-color: #fe5f23;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
-  margin: 0 10px 0 0;
-}
-.margin__top-30 li {
-  margin: 30px 0 0;
-}
-.proud__margin li:first-child {
-  margin-top: 16px;
-}
-.proud__sub {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  padding: 4px;
-}
-.prod__li {
-  display: flex;
-  align-items: top;
-  position: relative;
-  left: -11px;
-}
-.prod__li::before {
-  content: '“';
-  font-size: 42px;
-  color: #fff;
-  line-height: 1;
-  position: relative;
-  top: 6px;
-}
-.prod__li::after {
-  content: '”';
-  font-size: 42px;
-  color: #fff;
-  line-height: 1;
-  position: relative;
-  top: 6px;
-}
-.circle__position {
-  position: relative;
-  left: 27px;
-}
 
 /* section - 상품안내 */
-
 .con__tran-product {
-  transform: translateY(200px);
+  transform: translateY(160px);
   opacity: 0;
 }
 .con__product-ul {
   display: flex;
   padding: 0 30px;
-  transform: translateY(200px);
 }
 
 .con__product-ul li {
   width: 25%;
-  /* height: 290px; */
   padding: 0 15px;
   box-sizing: border-box;
   position: relative;
-  transform: translateY(200px);
+  transform: translateY(160px);
   opacity: 0;
 }
 .con__product-ul li:first-child {
@@ -330,9 +67,8 @@
 }
 
 /* 매장안내 */
-
 .con__tran-store {
-  transform: translateY(200px);
+  transform: translateY(160px);
   opacity: 0;
 }
 .con__tran-store h2 {
@@ -386,23 +122,27 @@
   height: 54px;
   font-size: 20px;
   font-weight: 500;
-  /* line-height: 1.7; */
   text-align: center;
   padding-top: 20px;
 }
+
 .con__store-prevBtn {
   position: absolute;
   bottom: 0;
-  left: 36%;
+  left: 33%;
   height: 54px;
-  padding-top: 26px;
+  padding: 26px 0 0;
+  z-index: 50;
+  background-color: #fff;
 }
 .con__store-nextBtn {
   position: absolute;
   bottom: 0;
-  right: 36%;
+  right: 33%;
   height: 54px;
-  padding-top: 26px;
+  padding: 26px 0 0;
+  z-index: 50;
+  background-color: #fff;
 }
 button {
   border: none;
@@ -410,7 +150,9 @@ button {
   width: 11px;
   height: 18px;
   cursor: pointer;
+  background-color: #fff;
 }
+
 .con__store-nextBtn button {
   background: url('https://www.psnmarketing.com/images/main/left.svg') no-repeat;
 }
@@ -425,13 +167,11 @@ button {
   display: flex;
   overflow: hidden;
   margin: 180px 0 0 0;
-  border: 1px solid red;
 }
 .con__service-wrap h3 {
   font-size: 27px;
   font-weight: 600;
   width: 330px;
-  /* line-height: 1.7; */
   transform: translateX(-140px);
   opacity: 0;
 }
@@ -448,13 +188,11 @@ button {
 .con__service-wrap > ul > li h2 {
   font-size: 20px;
   font-weight: 600;
-  /* line-height: 1.7; */
 }
 .con__service-wrap > ul > li p {
   font-size: 17px;
   color: #444;
   padding: 10px 0;
-  /* line-height: 1.7; */
 }
 
 .con__service-wrap > ul > li:first-child {
@@ -490,7 +228,7 @@ button {
 }
 /* 사회적 가치 활동 */
 .con__tran-activity {
-  transform: translateY(200px);
+  transform: translateY(160px);
   opacity: 0;
 }
 .con__activity-ul {
@@ -499,7 +237,6 @@ button {
 }
 .con__activity-ul > li {
   width: 25%;
-  height: 550px;
   margin: 0 10px 30px 10px;
   background: #f5f5f5;
 }
@@ -526,13 +263,11 @@ button {
 .activity__text {
   font-size: 17px;
   font-weight: 400;
-  /* line-height: 1.7; */
 }
 .activity__more {
   font-size: 15px;
   padding: 0 30px 0 0;
   margin-right: 30px;
-  /* line-height: 1.7; */
   color: #777;
   float: right;
   clear: both;
