@@ -22,7 +22,6 @@ navMenu.addEventListener('mouseover', () => {
   });
   menuHandler(headerBackColorTop, '80px');
   menuBackHandler(headerBackColorBottom, 'visible', 'all 0.8s ease-in-out');
-  headerWrap.style.boxShadow = 'none';
 });
 
 navMenu.addEventListener('mouseout', () => {
@@ -31,5 +30,34 @@ navMenu.addEventListener('mouseout', () => {
   });
   menuHandler(headerBackColorTop, '-240px');
   menuBackHandler(headerBackColorBottom, 'hidden', 'all 0.4s ease-in-out');
-  headerWrap.style.boxShadow = '0 5px 5px rgb(0 0 0 / 10%)';
+});
+
+// 미디어쿼리
+const hambergerBtn = document.querySelector('.hamberger__btn');
+const mediaNav = document.querySelector('.media__nav');
+const hambergerBtnBar = document.querySelectorAll('.hamberger__btn span');
+hambergerBtnBar.forEach((item) =>
+  hambergerBtn.addEventListener('click', () => {
+    if (item.classList.contains('active')) {
+      item.classList.remove('active');
+      mediaNav.classList.remove('active');
+    } else {
+      item.classList.add('active');
+      mediaNav.classList.add('active');
+    }
+  }),
+);
+
+const mediaMenu = document.querySelectorAll('.media__menu-tit');
+const mediaSubmenu = document.querySelectorAll('.media__submenu');
+mediaMenu.forEach((menu, index) => {
+  menu.addEventListener('click', () => {
+    if (menu.classList.contains('active')) {
+      menu.classList.remove('active');
+      mediaSubmenu[index].classList.remove('active');
+    } else {
+      menu.classList.add('active');
+      mediaSubmenu[index].classList.add('active');
+    }
+  });
 });

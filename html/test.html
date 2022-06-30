@@ -7,50 +7,46 @@
     <title>Document</title>
     <style>
       body {
-        margin: 0;
-        padding: 0;
-        position: relative;
+        padding: 300px;
       }
       div {
-        width: 300px;
-        height: 300px;
-        border: 1px solid #222;
-        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 1px solid red;
+        width: 30px;
+        height: 30px;
       }
-      .box1 {
-        position: absolute;
-        top: -50px;
-        left: 50px;
-        z-index: -1;
-        background-color: tomato;
+      span {
+        display: inline-block;
+        width: 30px;
+        height: 2px;
+        background-color: orange;
+        border-left: 1px solid red;
       }
-      .box2 {
-        position: absolute;
-        top: 50px;
-        left: 90px;
-        background: rgba(0, 0, 0, 0.1);
+      span:nth-child(2) {
+        margin: 10px 0;
+        display: none;
       }
-      .box3 {
+      span:nth-child(1) {
+        transform: rotate(45deg);
         position: absolute;
-        top: 200px;
-        left: 130px;
-        z-index: -1;
-        background-color: tomato;
+        top: 50%;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 50%;
       }
     </style>
   </head>
   <body>
-    <div class="box1">box1</div>
-    <div class="box2">box2</div>
-    <div class="box3">box3</div>
-    <script>
-      function test(n) {
-        let num = n;
-        console.log('숫자는?', num);
-      }
-
-      test(2);
-      test(4);
-    </script>
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </body>
 </html>

@@ -62,10 +62,8 @@
   font-size: 32px;
   color: #353535;
   letter-spacing: -0.06em;
-  /* line-height: 1.7; */
   font-weight: 400;
   text-align: center;
-  font-family: 'Noto Sans Kr', sans-serif;
 }
 .slide__textbox-01 h3 {
   font-size: 50px;
@@ -74,7 +72,6 @@
   text-align: center;
   letter-spacing: -0.06em;
   line-height: 1.4;
-  font-family: 'Noto Sans Kr', sans-serif;
 }
 
 .slide__textbox {
@@ -85,14 +82,11 @@
   margin-left: 100px;
 }
 .slide__textbox p {
-  font-family: 'Noto Sans Kr', sans-serif;
   font-size: 32px;
   letter-spacing: -0.06em;
-  /* line-height: 1.7; */
   font-weight: 400;
 }
 .slide__textbox h3 {
-  font-family: 'Noto Sans Kr', sans-serif;
   font-size: 50px;
   margin-top: 20px;
   letter-spacing: -0.06em;
@@ -114,15 +108,19 @@
 }
 
 .wavve__color,
-.books__color {
+.books__color p {
   color: #fff;
 }
 .coloring {
-  font-size: 65px !important;
+  font-size: 65px;
   color: #ff545c;
+  margin-bottom: 10px;
+  display: block;
 }
+
 .books {
-  font-size: 65px !important;
+  font-size: 65px;
+  color: #fff;
 }
 .coloring img,
 .books img {
@@ -154,4 +152,28 @@
   background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_next.png');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 991px) {
+  .slider__view {
+    top: 54px;
+    height: calc(100vh - 54px);
+  }
+  .slide__textbox-01 p,
+  .slide__textbox p {
+    font-size: 24px;
+  }
+  .slide__textbox-01 h3,
+  .slide__textbox h3 {
+    font-size: 36px;
+  }
+  .coloring,
+  .books {
+    font-size: 55px;
+  }
+  .coloring img,
+  .books img {
+    transform: scale(0.8);
+  }
 }

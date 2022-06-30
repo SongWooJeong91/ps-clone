@@ -17,10 +17,21 @@ let storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
 
 // 윈도우 사이즈 변화 시 width 재설정
 window.onresize = function () {
+  // main slide
+  mainSlideWidth = window.innerWidth;
+  updateWidthSlide();
+  updatePositionSlide();
+
+  // auto slide
   storeSlideWidth = conStoreImgView.getBoundingClientRect().width;
   storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
   updateWidth();
   updatePosition();
+
+  // media cardSlide
+  // cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
+  // updateWidthCardSlide();
+  // updatePositionCardSlide();
 };
 
 autoMakeClone(storeSlide[0], storeSliderUl, storeSlide[storeSlideCount - 1]);
@@ -123,11 +134,13 @@ function moveAutoSlide(num) {
   }, 3000);
 }
 
-storePrev.addEventListener('click', () => {
+storePrev.addEventListener('click', (e) => {
+  e.preventDefault();
   clearTimeout(timerId);
   moveAutoSlide(storeCurrentIdx - 1);
 });
-storeNext.addEventListener('click', () => {
+storeNext.addEventListener('click', (e) => {
+  e.preventDefault();
   clearTimeout(timerId);
   moveAutoSlide(storeCurrentIdx + 1);
 });

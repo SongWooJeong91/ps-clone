@@ -63,25 +63,25 @@
   opacity: 0;
   overflow: hidden;
 }
-.con__card01 {
+.con__card > li:first-child {
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img01.png')
-    center/cover no-repeat;
+    no-repeat cover;
 }
-.con__card02 {
+.con__card > li:nth-child(2) {
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img02.png')
-    center/cover no-repeat;
+    no-repeat;
 }
-.con__card03 {
+.con__card > li:nth-child(3) {
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img03.png')
-    center/cover no-repeat;
+    no-repeat;
 }
-.con__card04 {
+.con__card > li:nth-child(4) {
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img04.png')
-    center/cover no-repeat;
+    no-repeat;
 }
-.con__card05 {
+.con__card > li:last-child {
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img05.png')
-    center/cover no-repeat;
+    no-repeat;
 }
 .con__li-box {
   width: 100%;
@@ -264,44 +264,5 @@
 @media (max-width: 991px) {
   .con__img-text {
     display: block;
-  }
-  .con__card-slide {
-    width: 100%;
-    height: 493px;
-    overflow: hidden;
-    position: relative;
-  }
-  .con__card {
-    margin: 0;
-    width: calc(45% * 5);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .con__card > li {
-    margin: 0 25px;
-    width: 100%;
-  }
-  .card__btn-box {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  .card__btn-span {
-    width: 12px;
-    height: 12px;
-    background: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .card__btn-span:not(:last-child) {
-    margin-right: 10px;
-  }
-  .card__btn-span.active {
-    width: 30px;
-    background: #ea002c;
-    border-radius: 45px;
-    transition: all 0.3s ease-in-out;
   }
 }

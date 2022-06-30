@@ -3,3 +3,48 @@
 @import url(./identity.css);
 @import url(./contents.css);
 @import url(./footer.css);
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 미디어쿼리 */
+@media (max-width: 990px) {
+  /* 
+    메뉴
+    - 상단 메뉴 없앰
+    - 햄버거 메뉴로 변경
+    */
+  /* identity 
+    - 이미지를 상세 어쩌고 멘트 추가
+    - card 슬라이드 추가, 라디오 버튼으로 제어
+    */
+  /* 
+    서비스
+    - h3, text 위치 변경
+    */
+  /* 
+    사회적 가치 활동
+    -앞에 두개만 보여줌
+    */
+}
+@media (max-width: 768px) {
+  /* 
+    top버튼 크기 조절
+    */
+  /* 
+    상품안내
+    - 오토 슬라이드로 변경
+    - 버튼 선택
+    - 바로가기 버튼 
+    */
+  /* 
+    서비스
+    - h3, text 위치, 크기 변경
+    */
+  /* 
+    footer
+    - 폰트 크기, 정렬
+    - sk 메뉴 하단 100%
+    */
+}
