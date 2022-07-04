@@ -19,7 +19,7 @@
   line-height: 1.7;
   color: #fff;
 }
-.footer__menu li:first-child {
+.footer__menu li:first-child a {
   border-bottom: 1px solid #fff;
 }
 .footer__info {
@@ -102,4 +102,37 @@
 .footer__skmenu-sub li a:hover {
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
+}
+@media (max-width: 766px) {
+  .footer__menu {
+    flex-direction: column;
+  }
+  .footer__menu li a {
+    font-size: 24px;
+  }
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__info > li {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+  }
+  .footer__connect li {
+    margin: 0 30px 0 0;
+  }
+  .footer__skmenu {
+    width: 100vw;
+    padding: 8px 9vw;
+  }
+  .footer__skmenu-sub {
+    width: 100vw;
+  }
+  .footer__skmenu-sub li a {
+    padding: 8px 9vw;
+  }
+  .footer__icon {
+    right: 9vw;
+  }
 }

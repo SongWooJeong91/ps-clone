@@ -8,16 +8,15 @@ topBtn.addEventListener('click', (e) => {
 });
 
 const conTran = document.querySelector('.con__tran');
-const conCard = document.querySelector('.con__card');
-const conCardLi = document.querySelectorAll('.con__card>li');
+const conCardSc = document.querySelector('.con__card');
+const conCardScLi = document.querySelectorAll('.con__card>li');
 const conTranProduct = document.querySelector('.con__tran-product');
 const conProductUl = document.querySelector('.con__product-ul');
 const conProductUlLi = document.querySelectorAll('.con__product-ul>li');
 const conTranStore = document.querySelector('.con__store__tran');
-console.log(conTranStore);
 const coServiceWrapH3 = document.querySelector('.con__service-wrap h3');
 const conServiceUl = document.querySelectorAll('.con__service-ul>li');
-const conTranActivity = document.querySelector('.con__tran-activity');
+const conTranActivity = document.querySelector('.con__activity-tran');
 const scrSpace = window.innerHeight;
 
 function scrollAni(ele, transF, opaC, transiT) {
@@ -43,7 +42,7 @@ function appear(ele) {
 window.addEventListener('scroll', () => {
   if (
     conTran.getBoundingClientRect().top - scrSpace >
-    -conTran.getBoundingClientRect().height / 3
+    -conTran.getBoundingClientRect().height / 4
   ) {
     disappear(conTran);
   } else if (conTran.getBoundingClientRect().top - scrSpace < 0) {
@@ -51,16 +50,16 @@ window.addEventListener('scroll', () => {
   }
 
   if (
-    conCard.getBoundingClientRect().top - scrSpace >
-    -conCard.getBoundingClientRect().height / 3
+    conCardSc.getBoundingClientRect().top - scrSpace >
+    -conCardSc.getBoundingClientRect().height / 4
   ) {
-    conCardLi.forEach((card, idx) => {
+    conCardScLi.forEach((card, idx) => {
       card.style.transform = 'translateY(200px)';
       card.style.opacity = '0';
       card.style.transition = `all ${0.8 + 0.3 * idx}s ease-in-out`;
     });
-  } else if (conCard.getBoundingClientRect().top - scrSpace < 0) {
-    conCardLi.forEach((card, idx) => {
+  } else if (conCardSc.getBoundingClientRect().top - scrSpace < 0) {
+    conCardScLi.forEach((card, idx) => {
       card.style.transform = 'translateY(0px)';
       card.style.opacity = '1';
       card.style.transition = `all ${0.8 + 0.3 * idx}s ease-in-out`;
@@ -69,7 +68,7 @@ window.addEventListener('scroll', () => {
 
   if (
     conTranProduct.getBoundingClientRect().top - scrSpace >
-    -conTranProduct.getBoundingClientRect().height / 3
+    -conTranProduct.getBoundingClientRect().height / 4
   ) {
     disappear(conTranProduct);
   } else if (conTranProduct.getBoundingClientRect().top - scrSpace < 0) {
@@ -78,7 +77,7 @@ window.addEventListener('scroll', () => {
 
   if (
     conProductUl.getBoundingClientRect().top - scrSpace >
-    -conProductUl.getBoundingClientRect().height / 3
+    -conProductUl.getBoundingClientRect().height / 4
   ) {
     conProductUlLi.forEach((item, idx) => {
       item.style.transform = 'translateY(200px)';
@@ -94,7 +93,7 @@ window.addEventListener('scroll', () => {
   }
   if (
     conTranStore.getBoundingClientRect().top - scrSpace >
-    -conTranStore.getBoundingClientRect().height / 3
+    -conTranStore.getBoundingClientRect().height / 4
   ) {
     disappear(conTranStore);
   } else if (conTranStore.getBoundingClientRect().top - scrSpace < 0) {
@@ -102,7 +101,7 @@ window.addEventListener('scroll', () => {
   }
   if (
     coServiceWrapH3.getBoundingClientRect().top - scrSpace >
-    -coServiceWrapH3.getBoundingClientRect().height / 3
+    -coServiceWrapH3.getBoundingClientRect().height / 4
   ) {
     coServiceWrapH3.style.transform = 'translateX(-140px)';
     coServiceWrapH3.style.opacity = '0';
@@ -124,7 +123,7 @@ window.addEventListener('scroll', () => {
   }
   if (
     conTranActivity.getBoundingClientRect().top - scrSpace >
-    -conTranActivity.getBoundingClientRect().height / 3
+    -conTranActivity.getBoundingClientRect().height / 4
   ) {
     disappear(conTranActivity);
   } else if (conTranActivity.getBoundingClientRect().top - scrSpace < 0) {

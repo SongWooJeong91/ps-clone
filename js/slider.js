@@ -26,6 +26,7 @@ function makeClone() {
 }
 // 추가된 요소 업데이트
 function updateWidthSlide() {
+  // console.log('updateWidthSlide()');
   let currentSlides = document.querySelectorAll('.slider__ul li');
   let newSlideCount = currentSlides.length;
 
@@ -34,6 +35,7 @@ function updateWidthSlide() {
 }
 // 추가된 요소 위치 잡기
 function updatePositionSlide() {
+  // console.log('updatePositionSlide()');
   mainSliderUl.style.left = -mainSlideWidth + 'px';
 }
 
@@ -74,21 +76,18 @@ function moveSlide(num) {
 }
 
 // identity slide
-const conImgText = document.querySelector('.con__img-text');
-if (window.getComputedStyle(conImgText).display === 'block') {
-  const conCard = document.querySelector('.con__card');
-  const conCardLi = document.querySelectorAll('.con__card>li');
-  let conCardCount = conCardLi.length;
-  let cardIdx = 0;
-  // 이건 문제네~
-  const conCardSlide = document.querySelector('.con__card-slide');
-  console.log(conCardSlide.getBoundingClientRect().width);
-  // ~이건 문제네
-  let cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
-  const cardBtnBox = document.querySelector('.card__btn-box');
+const conCard = document.querySelector('.con__card');
+const conCardLi = document.querySelectorAll('.con__card>li');
+let conCardCount = conCardLi.length;
+let cardIdx = 0;
+const conCardSlide = document.querySelector('.con__card-slide');
+let cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
+const cardBtnBox = document.querySelector('.card__btn-box');
 
+cardMediaFn();
+
+function cardMediaFn() {
   makeCloneCard();
-
   // 새로운 요소 추가
   function makeCloneCard() {
     let cloneCardSlideFirst = conCardLi[0].cloneNode(true);
@@ -118,21 +117,22 @@ if (window.getComputedStyle(conImgText).display === 'block') {
   function updatePositionCardSlide() {
     conCard.style.left = -cardSlideWidth + 50 + 'px';
   }
+}
+createBtn();
 
-  // 버튼 추가 함수 호출
-  createBtn();
-  // 버튼 추가 함수
-  function createBtn() {
-    for (let i = 0; i < conCardCount; i++) {
-      let cardBtn = document.createElement('span');
-      cardBtn.setAttribute('class', 'card__btn-span');
-      cardBtnBox.appendChild(cardBtn);
-    }
+// 버튼 추가 함수
+function createBtn() {
+  for (let i = 0; i < conCardCount; i++) {
+    let cardBtn = document.createElement('span');
+    cardBtn.setAttribute('class', 'card__btn-span');
+    cardBtnBox.appendChild(cardBtn);
   }
-  // 버튼
+}
+cardBtnEven();
+// 버튼 이벤트 함수
+function cardBtnEven() {
   const cardBtnEle = document.querySelectorAll('.card__btn-box>span');
   cardBtnEle[cardIdx].classList.add('active');
-  // 버튼 이벤트
   cardBtnEle.forEach((btn, index) => {
     btn.addEventListener('click', () => {
       cardBtnEle[cardIdx].classList.remove('active');
@@ -141,10 +141,8 @@ if (window.getComputedStyle(conImgText).display === 'block') {
       cardBtnEle[cardIdx].classList.add('active');
     });
   });
-  // active가 있는
-
-  // 슬라이드 애니메이션 함수
-  function moveCardSlide(num) {
-    conCard.style.left = -cardSlideWidth + -cardSlideWidth * num + 50 + 'px';
-  }
+}
+// 슬라이드 애니메이션 함수
+function moveCardSlide(num) {
+  conCard.style.left = -cardSlideWidth + -cardSlideWidth * num + 50 + 'px';
 }

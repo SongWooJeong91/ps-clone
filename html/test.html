@@ -5,48 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      body {
-        padding: 300px;
-      }
-      div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        border: 1px solid red;
-        width: 30px;
-        height: 30px;
-      }
-      span {
-        display: inline-block;
-        width: 30px;
-        height: 2px;
-        background-color: orange;
-        border-left: 1px solid red;
-      }
-      span:nth-child(2) {
-        margin: 10px 0;
-        display: none;
-      }
-      span:nth-child(1) {
-        transform: rotate(45deg);
-        position: absolute;
-        top: 50%;
-      }
-      span:nth-child(3) {
-        transform: rotate(-45deg);
-        position: absolute;
-        top: 50%;
-      }
-    </style>
   </head>
   <body>
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <ul>
+      <li class="clone">0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li class="clone">5</li>
+      <li class="clone">6</li>
+    </ul>
   </body>
+  <script>
+    let liList = document.querySelectorAll('ul>li');
+    console.log(liList.length);
+    liList.forEach((item) => {
+      console.log(item.classList.contains('clone'));
+      // if (item.classList.contains('clone')) {
+      //   item.remove();
+      // }
+      item.classList.contains('clone') && item.remove();
+    });
+  </script>
 </html>
