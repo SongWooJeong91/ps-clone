@@ -20,7 +20,7 @@ window.onresize = function () {
   // li 갯수가 초기의 갯수로 돌아가야 한다.
   // 뷰 사이즈가 991보다 크고 card li 갯수가 5개 보다 많다면
   if (mainSlideWidth >= 991 && cardLiCount > 5) {
-    console.log(' 991보다 클 때');
+    console.log('onsize 991보다 클 때');
     cardNewList.forEach((item) => {
       // 추가한 li는 삭제
       item.classList.contains('clone') && item.remove();
@@ -28,17 +28,17 @@ window.onresize = function () {
       conCard.style.width = '100%';
     });
   } else if (mainSlideWidth <= 991 && cardLiCount <= 5) {
-    console.log('991보다 작을 때');
+    console.log('onsize 991보다 작을 때');
     cardMediaFn();
   }
 
   //  상품안내 미디어쿼리 적용 시 슬라이드
   let productNewList = document.querySelectorAll('.con__product-ul>li');
-
+  // 상품안내 갯수
   let productLiCount = productNewList.length;
 
   if (mainSlideWidth >= 766 && productLiCount > 4) {
-    console.log('766보다 클 때');
+    console.log('onsize 766보다 클 때');
     productNewList.forEach((item) => {
       item.classList.contains('clone') && item.remove();
       productSlideUl.style.width = '100%';
@@ -46,7 +46,7 @@ window.onresize = function () {
     // 추가한 요소를 지운다.
     // ul의 width를 초기화
   } else if (mainSlideWidth <= 766 && productLiCount <= 4) {
-    console.log('766보다 작을 때');
+    console.log('onsize 766보다 작을 때');
     // 상품안내 새로 만들기 함수를 재호출 한다.
     autoMakeClone(
       productSlide[0],

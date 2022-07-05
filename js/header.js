@@ -44,6 +44,7 @@ hambergerBtnBar.forEach((item) =>
     } else {
       item.classList.add('active');
       mediaNav.classList.add('active');
+      mediaNav.style.transition = 'all 0.8s ease-in-out';
     }
   }),
 );

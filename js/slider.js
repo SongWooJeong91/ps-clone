@@ -84,8 +84,6 @@ const conCardSlide = document.querySelector('.con__card-slide');
 let cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
 const cardBtnBox = document.querySelector('.card__btn-box');
 
-cardMediaFn();
-
 function cardMediaFn() {
   makeCloneCard();
   // 새로운 요소 추가
@@ -118,7 +116,6 @@ function cardMediaFn() {
     conCard.style.left = -cardSlideWidth + 50 + 'px';
   }
 }
-createBtn();
 
 // 버튼 추가 함수
 function createBtn() {
@@ -128,7 +125,7 @@ function createBtn() {
     cardBtnBox.appendChild(cardBtn);
   }
 }
-cardBtnEven();
+
 // 버튼 이벤트 함수
 function cardBtnEven() {
   const cardBtnEle = document.querySelectorAll('.card__btn-box>span');
@@ -145,4 +142,11 @@ function cardBtnEven() {
 // 슬라이드 애니메이션 함수
 function moveCardSlide(num) {
   conCard.style.left = -cardSlideWidth + -cardSlideWidth * num + 50 + 'px';
+}
+
+if (window.innerWidth <= 991) {
+  console.log('991 이하 일 때');
+  cardMediaFn();
+  createBtn();
+  cardBtnEven();
 }
