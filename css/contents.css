@@ -1,6 +1,12 @@
 .animated {
   transition: all 0.5s ease-out;
 }
+.content__wrap {
+  max-width: 1310px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 30px;
+}
 .con__wrap {
   margin-top: 150px;
 }
@@ -67,7 +73,7 @@
 .con__product-ul {
   width: 100%;
   display: flex;
-  padding: 0 30px;
+  /* padding: 0 30px; */
 }
 
 .con__product-ul li {
@@ -134,11 +140,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px soild violet;
 }
 .con__store-imgView {
-  overflow: hidden;
-  width: 88vw;
-  height: 37vw;
+  width: 100%;
+  height: 20vw;
+  min-height: 530px;
   margin: 0 50px;
   position: relative;
   display: block;
@@ -150,8 +157,14 @@
   top: 0;
   left: 0;
 }
+.con__store-ul > li {
+  width: 100%;
+  height: 20vw;
+  min-height: 530px;
+  margin: 0 50px;
+}
 .con__store-ul > li > a {
-  display: inline-block;
+  /* display: inline-block; */
 }
 .con__store-img {
   width: 100%;
@@ -216,7 +229,7 @@ button {
 
 /* PS&Marketing 서비스 */
 .con__service-wrap {
-  padding: 0 30px;
+  /* padding: 0 30px; */
   display: flex;
   overflow: hidden;
   margin: 180px 0 0 0;
@@ -286,12 +299,17 @@ button {
 }
 .con__activity-ul {
   display: flex;
-  padding: 0 30px;
 }
 .con__activity-ul > li {
   width: 25%;
-  margin: 0 10px 30px 10px;
+  margin: 0 10px 30px;
   background: #f5f5f5;
+}
+.con__activity-ul > li:first-child {
+  margin-left: 0;
+}
+.con__activity-ul > li:last-child {
+  margin-right: 0;
 }
 .con__activity-img img {
   width: 100%;
@@ -343,6 +361,14 @@ button {
 .product__btn-box {
   display: none;
 }
+@media (max-width: 1377px) {
+  .con__store-imgView {
+    overflow: hidden;
+  }
+  .con__store-ul > li {
+    margin: 0px;
+  }
+}
 @media (max-width: 991px) {
   .con__activity-ul li:nth-child(n + 3) {
     display: none;
@@ -355,6 +381,9 @@ button {
   }
   .con__service-ul > li {
     margin-top: 50px;
+  }
+  .content__wrap {
+    margin: 0 3vw;
   }
 }
 @media (max-width: 766px) {
@@ -411,9 +440,13 @@ button {
   /* 상품안내 */
   .product__slide-wrap {
     width: 100%;
-    height: 90vw;
+    height: 600px;
     overflow: hidden;
     position: relative;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .con__product-ul {
     padding: 0;
@@ -422,13 +455,20 @@ button {
     position: absolute;
     left: 0;
     top: 0;
+    border: 1px solid red;
   }
 
   .con__product-ul li {
     width: 100%;
     padding: 0;
-    margin: 0 2%;
     box-sizing: border-box;
+    border: 1px solid green;
+  }
+  .con__product-ul li a {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(231, 35, 172);
   }
   .con__product-ul li {
     pointer-events: none;
@@ -445,8 +485,8 @@ button {
     background: #ea002c
       url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon01_arrow.png')
       no-repeat right 4vw center/3.5vw;
-    right: 4vw;
-    bottom: 20vw;
+    right: 4%;
+    bottom: 180px;
     opacity: 1;
     box-sizing: border-box;
     display: flex;
@@ -455,11 +495,13 @@ button {
   .con__product-a h2 {
     font-size: 4.4vw;
     font-weight: 600;
+    border: 1px solid red;
   }
   .con__product-a img {
     flex: 0;
     width: 100%;
     height: 100%;
+    border: 1px solid red;
   }
   .product__btn-box {
     display: block;
@@ -468,6 +510,7 @@ button {
     position: absolute;
     bottom: 0;
     left: 0;
+    border: 1px solid blue;
   }
   .product__btn-span {
     display: inline-block;

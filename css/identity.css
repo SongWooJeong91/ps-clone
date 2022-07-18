@@ -54,7 +54,7 @@
 .con__card {
   width: 100%;
   display: flex;
-  padding: 0 30px;
+  /* padding: 0 30px; */
 }
 .con__card > li {
   display: flex;
@@ -267,6 +267,8 @@
   position: relative;
   left: 27px;
 }
+/* @media screen and (max-width: 1377px) {
+} */
 @media (max-width: 991px) {
   .con__img-text {
     display: block;

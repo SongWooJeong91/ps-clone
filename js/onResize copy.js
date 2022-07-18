@@ -30,8 +30,6 @@ window.onresize = function () {
   } else if (mainSlideWidth <= 991 && cardLiCount <= 5) {
     console.log('onsize 991보다 작을 때');
     makeCloneCard();
-    createBtn();
-    cardBtnEven();
   }
 
   //  상품안내 미디어쿼리 적용 시 슬라이드

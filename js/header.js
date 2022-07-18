@@ -20,7 +20,7 @@ navMenu.addEventListener('mouseover', () => {
   subNav.forEach((item) => {
     menuHandler(item, '81px');
   });
-  menuHandler(headerBackColorTop, '80px');
+  menuHandler(headerBackColorTop, '0px');
   menuBackHandler(headerBackColorBottom, 'visible', 'all 0.8s ease-in-out');
 });
 
@@ -28,7 +28,7 @@ navMenu.addEventListener('mouseout', () => {
   subNav.forEach((item) => {
     menuHandler(item, '-239px');
   });
-  menuHandler(headerBackColorTop, '-240px');
+  menuHandler(headerBackColorTop, '-320px');
   menuBackHandler(headerBackColorBottom, 'hidden', 'all 0.4s ease-in-out');
 });
 

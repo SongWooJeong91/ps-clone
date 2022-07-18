@@ -146,9 +146,9 @@ function moveCardSlide(num) {
   conCard.style.left = -cardSlideWidth + -cardSlideWidth * num + 50 + 'px';
 }
 
-if (window.innerWidth <= 991) {
-  console.log('처음 뷰사이즈 991 이하 일 때');
-  makeCloneCard();
-  createBtn();
-  cardBtnEven();
-}
+// if (window.innerWidth <= 991) {
+//   console.log('처음 뷰사이즈 991 이하 일 때');
+//   makeCloneCard();
+//   createBtn();
+//   cardBtnEven();
+// }

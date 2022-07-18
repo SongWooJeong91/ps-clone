@@ -77,9 +77,11 @@
 .slide__textbox {
   text-align: left;
   position: absolute;
-  top: 38%;
+  top: 50%;
   left: 0;
+  padding-left: 12%;
   margin-left: 100px;
+  transform: translateY(-50%);
 }
 .slide__textbox p {
   font-size: 32px;
@@ -131,34 +133,52 @@
   z-index: 10;
 }
 .slide__btnbox button {
-  width: 20px;
-  height: 38px;
+  width: 42px;
+  height: 80px;
   border: 0;
   outline: 0;
   cursor: pointer;
 }
 .slide__btnbox .prev {
   position: absolute;
-  top: 57%;
-  left: 2%;
+  top: 50%;
+  left: 7%;
+  transform: translateY(-50%);
   background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_prev.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
 .slide__btnbox .next {
   position: absolute;
-  top: 57%;
-  right: 2%;
+  top: 50%;
+  right: 7%;
+  transform: translateY(-50%);
   background: url('https://www.psnmarketing.com/images/visual/mvisual_arrow_next.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
-
+@media (max-width: 1377px) {
+  .slide__btnbox button {
+    width: 20px;
+    height: 38px;
+    border: 0;
+    outline: 0;
+  }
+  .slide__textbox {
+    padding-left: 0;
+  }
+  .slide__btnbox .prev {
+    left: 30px;
+  }
+  .slide__btnbox .next {
+    right: 30px;
+  }
+}
 /* 미디어 쿼리 */
 @media (max-width: 991px) {
   .slider__view {
     top: 54px;
-    height: calc(100vh - 54px);
+    height: 600px;
   }
   .slide__textbox-01 p,
   .slide__textbox p {
@@ -172,8 +192,19 @@
   .books {
     font-size: 55px;
   }
-  .coloring img,
+  .flo__color img {
+    width: 5rem;
+    margin-top: 4px;
+  }
+
+  .wavve__color img {
+    width: 8.5rem;
+    margin-top: 4px;
+  }
+  .coloring__h3 img {
+    width: 19rem;
+  }
   .books img {
-    transform: scale(0.8);
+    width: 17rem;
   }
 }

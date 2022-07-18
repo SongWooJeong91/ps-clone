@@ -40,13 +40,24 @@ autoMakeClone(
   storeTextWidth,
 );
 
-autoMakeClone(
-  productSlide[0],
-  productSlideUl,
-  productSlide[storeTextCount - 1],
-  '.con__product-ul li',
-  productSlideWidth,
-);
+if (window.innerWidth <= 766) {
+  console.log('766 이하 일 때');
+  autoMakeClone(
+    productSlide[0],
+    productSlideUl,
+    productSlide[storeTextCount - 1],
+    '.con__product-ul li',
+    productSlideWidth,
+  );
+}
+
+// autoMakeClone(
+//   productSlide[0],
+//   productSlideUl,
+//   productSlide[storeTextCount - 1],
+//   '.con__product-ul li',
+//   productSlideWidth,
+// );
 
 // 첫번째 요소, 마지막 요소 복제
 function autoMakeClone(

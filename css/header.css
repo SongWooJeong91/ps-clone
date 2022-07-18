@@ -1,12 +1,11 @@
 .header {
   width: 100%;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   z-index: 90;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
 }
 
 .sub__nav.animated,
@@ -15,13 +14,20 @@
 }
 .header__backColor-top {
   position: absolute;
-  top: -240px;
+  top: -320px;
   left: 0;
   width: 100%;
-  height: 320px;
+  height: 400px;
   background: #fff;
-  border-top: 1px solid #ddd;
   z-index: -1;
+}
+.header__backColor-line {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
 }
 .header__backColor-bottom {
   position: absolute;
@@ -34,20 +40,19 @@
   visibility: hidden;
 }
 .header__wrap {
-  display: flex;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 1310px;
   height: 80px;
+  padding: 0 30px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 30px;
   background: #fff;
-  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
 }
 .header__logo {
   width: 200px;
+  min-width: 200px;
+  padding: 7px 0 0;
 }
 .st0 {
   fill: red;
@@ -141,7 +146,7 @@ header .h__directions a {
   background: url(https://www.psnmarketing.com/images/common/tnb_ico.png)
     no-repeat left center;
   padding: 0 0 0 36px;
-  font-size: inherit;
+  font-size: 18px;
   color: #666;
   letter-spacing: -0.05em;
 }
@@ -183,6 +188,10 @@ header .h__directions:hover a {
 
 /* 미디어쿼리 */
 @media (max-width: 991px) {
+  .header {
+    height: 54px;
+    box-shadow: none;
+  }
   .nav__menu,
   .h__directions,
   .header__backColor-bottom,
@@ -190,15 +199,20 @@ header .h__directions:hover a {
     display: none;
   }
   .header__wrap {
-    box-shadow: none;
-  }
-  .header__wrap {
+    width: 100%;
+    margin: 0;
     height: 54px;
     padding: 0 0 0 15px;
+    border-bottom: 1px solid #ddd;
   }
   .header__logo {
     width: 160px;
+    min-width: 160px;
+    padding: 0;
     height: 40px;
+  }
+  .header__backColor-line {
+    display: none;
   }
 
   /* hamberger__btn */
