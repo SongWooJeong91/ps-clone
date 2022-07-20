@@ -6,38 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .imgBox {
-        width: 100%;
-        height: 100%;
+      ul {
+      }
+      li {
+        float: left;
+        width: 30px;
+        height: 30px;
         border: 1px solid red;
+        list-style: none;
       }
-      img {
-        width: 60%;
-        height: 60%;
-      }
-      .card__btn-span {
-        width: 20px;
-        height: 20px;
-        background-color: #ccc;
+      li:last-child {
+        clear: both;
       }
     </style>
   </head>
   <body>
-    <div>
-      <div class="imgBox">
-        <!-- <span class="btn">1</span>
-        <span class="btn">2</span>
-        <span class="btn">3</span> -->
-      </div>
-    </div>
-    <script>
-      // let btn = document.querySelectorAll('.btn');
-      let imgBox = document.querySelector('.imgBox`');
-      for (let i = 0; i < 3; i++) {
-        let cardBtn = document.createElement('span');
-        cardBtn.setAttribute('class', 'card__btn-span');
-        imgBox.appendChild(cardBtn);
-      }
-    </script>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </body>
 </html>

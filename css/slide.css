@@ -175,7 +175,7 @@
   }
 }
 /* 미디어 쿼리 */
-@media (max-width: 991px) {
+@media all and (max-width: 1023px) {
   .slider__view {
     top: 54px;
     height: 600px;
@@ -207,4 +207,74 @@
   .books img {
     width: 17rem;
   }
+}
+@media all and (max-width: 768px) {
+  .slider__view {
+    height: 93vh;
+  }
+  .main__slide02 .slider__box {
+    background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img03m.jpg')
+      no-repeat center/cover;
+  }
+  .main__slide03 .slider__box {
+    background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img04m.jpg')
+      no-repeat center/cover;
+  }
+  .main__slide04 .slider__box {
+    background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img05m.jpg')
+      no-repeat center/cover;
+  }
+  .main__slide05 .slider__box {
+    background: url('https://www.psnmarketing.com/home/data/banner/mvisual_img06m.jpg')
+      no-repeat center/cover;
+  }
+  .slide__textbox-01 {
+    top: 14%;
+  }
+  .slide__textbox-01 p {
+    font-size: 4.4vw;
+  }
+  .slide__textbox-01 h3 {
+    font-size: 6.6vw;
+  }
+  .slide__textbox {
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10%;
+    margin: 0;
+    border: 1px solid red;
+  }
+  .slide__textbox p {
+    font-size: 4.4vw;
+  }
+  .slide__textbox h3 {
+    font-size: 6.6vw;
+  }
+  .coloring {
+    font-size: 8.5vw;
+    color: #ff545c;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .coloring__h3 img {
+    width: auto;
+    height: 7vw;
+  }
+  .books {
+    font-size: 8.5vw;
+  }
+  .coloring img {
+    margin-top: 3vw;
+  }
+  .books img {
+    width: auto;
+    margin-top: 3vw;
+    height: 7vw;
+  }
+}
+@media all and (max-width: 479px) {
 }

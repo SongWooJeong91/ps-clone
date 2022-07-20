@@ -12,10 +12,9 @@ html {
 }
 
 /* 미디어쿼리 */
-@media screen and (max-width: 1377px) {
+@media all and (max-width: 1023px) {
 }
-
-@media screen and (max-width: 990px) {
+@media all and (max-width: 768px) {
 }
-@media (max-width: 766px) {
+@media all and (max-width: 479px) {
 }

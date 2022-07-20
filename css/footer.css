@@ -109,7 +109,7 @@
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
 }
-@media (max-width: 766px) {
+@media all and (max-width: 768px) {
   .footer__menu {
     flex-direction: column;
   }
@@ -140,5 +140,22 @@
   }
   .footer__icon {
     right: 9vw;
+  }
+}
+@media all and (max-width: 479px) {
+  .footer__wrap {
+    padding: 0px;
+  }
+  .footer__menu li a {
+    font-size: 4vw;
+  }
+  .footer__connect {
+    display: inline-block;
+  }
+  .footer__info li {
+    font-size: 4vw;
+  }
+  .footer__connect li {
+    float: left;
   }
 }

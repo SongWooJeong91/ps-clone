@@ -84,7 +84,7 @@ const conCardSlide = document.querySelector('.con__card-slide');
 let cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
 const cardBtnBox = document.querySelector('.card__btn-box');
 
-// 새로운 요소 추가
+// // 새로운 요소 추가
 function makeCloneCard() {
   console.log('새로운 요소 추가 함수 호출');
   let cloneCardSlideFirst = conCardLi[0].cloneNode(true);
@@ -113,9 +113,9 @@ function updateWidthCardSlide() {
 // 추가된 요소 위치 잡기
 function updatePositionCardSlide() {
   console.log('ul 처음 자리 맞춤');
-  conCard.style.left = -cardSlideWidth + 50 + 'px';
+  conCard.style.left = 'calc(-45% + 50px)';
 }
-// createBtn();
+createBtn();
 // 버튼 추가 함수
 function createBtn() {
   console.log('버튼 생성 함수 호출');
@@ -125,8 +125,8 @@ function createBtn() {
     cardBtnBox.appendChild(cardBtn);
   }
 }
-
-// 버튼 이벤트 함수
+cardBtnEven();
+// // 버튼 이벤트 함수
 function cardBtnEven() {
   console.log('버튼 이벤트 함수 호출');
   const cardBtnEle = document.querySelectorAll('.card__btn-box>span');
@@ -134,21 +134,27 @@ function cardBtnEven() {
   cardBtnEle.forEach((btn, index) => {
     btn.addEventListener('click', () => {
       cardBtnEle[cardIdx].classList.remove('active');
-      moveCardSlide(index);
+      moveCardSlide(index, window.innerWidth);
       cardIdx = index;
       cardBtnEle[cardIdx].classList.add('active');
     });
   });
 }
 // 슬라이드 애니메이션 함수
-function moveCardSlide(num) {
-  console.log('버튼 애니메이션 함수 호출');
-  conCard.style.left = -cardSlideWidth + -cardSlideWidth * num + 50 + 'px';
+function moveCardSlide(num, winWidth) {
+  console.log('버튼 애니메이션 함수 호출', num, winWidth);
+
+  if (winWidth > 768 && winWidth <= 1023)
+    conCard.style.left = `calc(-45% * ${num} - 45% + 50px)`;
+  if (winWidth <= 768) conCard.style.left = `calc(-90% * ${num} - 90% + 4vw)`;
 }
 
-if (window.innerWidth <= 991) {
+if (window.innerWidth <= 1023) {
   console.log('처음 뷰사이즈 991 이하 일 때');
   makeCloneCard();
-  createBtn();
-  cardBtnEven();
+}
+if (window.innerWidth <= 768) {
+  console.log('처음 뷰사이즈 766 이하 일 때');
+  conCard.style.width = 'calc(90% * 8)';
+  conCard.style.left = 'calc(-90% + 4vw)';
 }
