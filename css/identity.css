@@ -2,7 +2,6 @@
   transform: translateY(160px);
   opacity: 0;
 }
-
 .con__tran h2 {
   font-size: 40px;
   padding-top: 15px 0 0;
@@ -21,7 +20,6 @@
   height: 5px;
   background-color: #ea002c;
 }
-
 .con__tran strong {
   color: #222;
   font-weight: 600;
@@ -83,6 +81,10 @@
   background: url('https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon00_img05.png')
     center/cover no-repeat;
 }
+.con__card-ulbox {
+  width: 100%;
+  padding: 46% 0 0 14%;
+}
 .con__li-box {
   width: 100%;
   height: 100%;
@@ -99,7 +101,8 @@
 .con__card > li:hover h3::before {
   background-color: #fff;
 }
-.con__card > li:hover .con__card-list {
+.con__card > li:hover .con__card-list,
+.con__card > li:hover .con__attr-sub {
   opacity: 1;
 }
 
@@ -109,19 +112,16 @@
   padding: 0 0 0 16px;
   position: absolute;
   top: 12px;
-  border: 1px solid red;
 }
 .h3__box > strong {
   font-size: 26px;
   color: #9c9c9c;
   display: block;
   font-weight: 600;
-  border: 1px solid red;
 }
 .h3__box > strong > span {
   color: #ea002c;
   font-weight: 600;
-  border: 1px solid red;
 }
 .con__card h3::before {
   content: '';
@@ -129,22 +129,16 @@
   height: auto;
   background-color: #ff7a00;
   margin: 4px 16px 0 0;
-  border: 1px solid red;
 }
 
 .h3__box > span {
   display: block;
   margin: 8px 0 0;
   font-size: 15px;
-  border: 1px solid blue;
 }
 .con__card-list {
-  position: absolute;
-  top: 110px;
-  left: 32px;
   width: 100%;
   opacity: 0;
-  border: 1px solid blue;
 }
 .con__card-list > li {
   word-break: keep-all;
@@ -154,7 +148,7 @@
   line-height: 1.6;
   font-weight: 300;
   color: #fff;
-  margin-top: 16px;
+  margin-bottom: 14%;
 }
 .con__card-list p {
   color: #fff;
@@ -167,26 +161,22 @@
   list-style: none !important;
 }
 .con__attr-sub {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 16px 0 0;
-  position: relative;
-  left: -11px;
-  border: 1px solid red;
+  opacity: 0;
 }
 .big__circle {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   background: rgba(255, 76, 34, 0.6);
-  line-height: 1.4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 13px;
-  margin: 30px 0 0;
 }
 .big__circle strong {
   font-weight: 600;
@@ -195,7 +185,8 @@
   letter-spacing: 0.05em;
 }
 .con__attr02-span {
-  margin: 30px 0 0;
+  width: 200px;
+  margin: 8% 0 0;
   font-size: 18px;
   color: #fff;
   display: flex;
@@ -207,7 +198,6 @@
   content: '“';
   font-size: 42px;
   color: #fff;
-  padding-top: 13px;
   padding: 13px 20px 0 0;
 }
 .con__attr02-span::after {
@@ -233,51 +223,43 @@
   color: #fff;
   margin: 0 10px 0 0;
 }
-.margin__top-30 li {
-  margin: 30px 0 0;
-}
+
 .proud__margin li:first-child {
   margin-top: 16px;
 }
 .proud__sub {
+  width: 210px;
   color: #fff;
   font-size: 18px;
   font-weight: 400;
   padding: 4px;
-}
-.prod__li {
   display: flex;
-  align-items: top;
-  position: relative;
-  left: -11px;
+  align-items: center;
+  justify-content: center;
 }
-.prod__li::before {
+
+.proud__sub::before {
   content: '“';
-  font-size: 42px;
+  font-size: 38px;
   color: #fff;
-  line-height: 1;
-  position: relative;
-  top: 6px;
+  box-sizing: border-box;
+  padding: 13px 2px 0 0;
 }
-.prod__li::after {
+.proud__sub::after {
   content: '”';
-  font-size: 42px;
+  font-size: 38px;
   color: #fff;
-  line-height: 1;
-  position: relative;
-  top: 6px;
+  padding: 13px 0 0 2px;
+  box-sizing: border-box;
 }
-.circle__position {
-  position: relative;
-  left: 27px;
-}
+/* --------------------------------------------------------------- */
 @media all and (max-width: 1023px) {
   .con__img-text {
     display: block;
   }
   .con__card-slide {
     width: 100%;
-    height: 500px;
+    height: 54vw;
     position: relative;
   }
   .con__card {
@@ -292,6 +274,29 @@
     margin: 0 25px;
     width: 100%;
     height: 100%;
+  }
+  .con__li-box {
+    width: 90%;
+    height: 93%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 122, 0, 0.75);
+  }
+  .h3__box strong,
+  .h3__box strong span,
+  .h3__box span {
+    color: #fff;
+  }
+  .con__card h3::before {
+    background-color: #fff;
+  }
+  .con__attr-sub {
+    opacity: 1;
+  }
+  .proud__sub {
+    width: 100%;
   }
   .card__btn-box {
     position: relative;
@@ -315,103 +320,94 @@
     border-radius: 45px;
     transition: all 0.3s ease-in-out;
   }
+  .con__card-list {
+    opacity: 1;
+  }
   .con__card-list p {
     display: inline;
   }
   .h3__box > strong {
-    font-size: 36px;
+    font-size: 3.6vw;
   }
   .h3__box > span {
-    font-size: 17px;
+    font-size: 1.7vw;
   }
   .con__card-list > li {
-    font-size: 18px;
+    font-size: 1.8vw;
   }
 
   .con__card-list > li > p.lineChange {
     display: block;
   }
   .con__prog-ul > li {
-    font-size: 17px;
+    font-size: 1.7vw;
   }
   .con__prog-circle {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-  }
-  .prod__li {
-    left: 2%;
-  }
-  .con__attr02-span {
-    width: 240px;
+    width: 5.5vw;
+    height: 5.5vw;
+    line-height: 5.5vw;
   }
   .con__attr02-span,
   .proud__sub {
-    font-size: 24px;
+    font-size: 2.4vw;
   }
-  .circle__position {
-    left: 50%;
-    transform: translateX(-50%);
+  .con__attr02-span,
+  .con__attr02-span {
+    width: 210px;
+  }
+  .big__circle {
+    width: 12vw;
+    height: 12vw;
+    font-size: 1.3vw;
+  }
+  .big__circle strong {
+    font-size: 2.2vw;
   }
 }
+/* ------------------------------------------------------------------- */
 @media all and (max-width: 768px) {
   .con__img-text {
     display: none;
   }
   .con__card-slide {
-    height: 90vw;
+    height: 100vw;
   }
   .con__card > li {
-    margin: 0 4vw;
     width: 80%;
     height: 100%;
   }
-  .con__card h3 {
-    display: flex;
-    line-height: 1;
-    padding: 0 0 0 16px;
-    position: absolute;
-    top: 6%;
-    left: 6%;
-    border: 1px solid red;
-  }
   .h3__box > strong {
-    font-size: 6vw;
-    border: 1px solid red;
+    font-size: 5.5vw;
   }
-
   .h3__box > span {
-    margin: 8px 0 0;
-    font-size: 2vw;
-    border: 1px solid blue;
-  }
-  .con__card-list {
-    top: 28%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 73%;
-    border: 1px solid blue;
+    font-size: 2.7vw;
   }
   .con__card-list > li {
     font-size: 3vw;
   }
-  .con__attr-sub {
-    left: 50%;
-    transform: translateX(-50%);
+
+  .con__prog-ul > li {
+    font-size: 3vw;
+  }
+  .con__prog-circle {
+    width: 9vw;
+    height: 9vw;
+    line-height: 9vw;
+  }
+  .con__attr02-span,
+  .proud__sub {
+    font-size: 3.4vw;
+  }
+  .con__attr02-span,
+  .con__attr02-span {
+    width: 100%;
   }
   .big__circle {
-    width: 20vw;
-    height: 20vw;
-    line-height: 1.4;
-    font-size: 2vw;
-    margin: 5vw 0 0;
+    width: 22vw;
+    height: 22vw;
+    font-size: 2.3vw;
   }
   .big__circle strong {
-    font-size: 3vw;
+    font-size: 3.2vw;
   }
-  .con__attr02-span {
-    font-size: 3vw;
-  }
-}
-@media all and (max-width: 479px) {
 }

@@ -241,12 +241,11 @@
     width: 100%;
     text-align: left;
     position: absolute;
-    top: 10%;
+    top: 4%;
     left: 50%;
     transform: translateX(-50%);
     padding: 0 10%;
     margin: 0;
-    border: 1px solid red;
   }
   .slide__textbox p {
     font-size: 4.4vw;
@@ -275,6 +274,4 @@
     margin-top: 3vw;
     height: 7vw;
   }
-}
-@media all and (max-width: 479px) {
 }

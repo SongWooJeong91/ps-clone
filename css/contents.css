@@ -369,6 +369,7 @@ button {
     margin: 0px;
   }
 }
+/* --------------------------------------------------------- */
 @media all and (max-width: 1023px) {
   .con__activity-ul li:nth-child(n + 3) {
     display: none;
@@ -447,7 +448,6 @@ button {
     height: 600px;
     overflow: hidden;
     position: relative;
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -459,14 +459,12 @@ button {
     position: absolute;
     left: 0;
     top: 0;
-    border: 1px solid red;
   }
 
   .con__product-ul li {
     width: 100%;
     padding: 0;
     box-sizing: border-box;
-    border: 1px solid green;
   }
   .con__product-ul li a {
     width: 100%;
@@ -538,10 +536,18 @@ button {
     font-weight: 500;
   }
   .con__store-prevBtn {
-    left: 23%;
+    left: -16%;
+    padding-left: 36%;
   }
   .con__store-nextBtn {
-    right: 23%;
+    right: -16%;
+    padding-right: 36%;
+  }
+  .con__store-textwrap {
+    width: 320px;
+    display: inline-block;
+    overflow: hidden;
+    padding: 20px 0 0 0;
   }
 }
 @media all and (max-width: 479px) {
