@@ -16,15 +16,15 @@ const storeTextCount = conStoreTextSlide.length;
 let storeTextWidth = conStoreTextwrap.getBoundingClientRect().width;
 // 상품안내
 const productSlideWrap = document.querySelector('.product__slide-wrap');
-const productSlideUl = document.querySelector('.con__product-ul');
-const productSlide = document.querySelectorAll('.con__product-ul li');
+const productUl = document.querySelector('.con__product-ul');
+const productItem = document.querySelectorAll('.con__product-ul > li');
+let productSlideWidth = productSlideWrap.getBoundingClientRect().width;
+let productItemCount = productItem.length;
 const productBtnBox = document.querySelector('.product__btn-box');
-let productCount = productSlide.length;
 let productSlideIdx = 0;
-let productSlideWidth =
-  productSlideUl.getBoundingClientRect().width / productCount;
 
 // 요소 추가 생성 함수 호출
+// 매장안내 생성
 autoMakeClone(
   storeSlide[0],
   storeSliderUl,
@@ -32,6 +32,7 @@ autoMakeClone(
   '.con__store-ul li',
   storeSlideWidth,
 );
+// 매장안내 텍스트 생성
 autoMakeClone(
   conStoreTextSlide[0],
   conStoreTextUl,
@@ -40,26 +41,7 @@ autoMakeClone(
   storeTextWidth,
 );
 
-if (window.innerWidth <= 766) {
-  console.log('766 이하 일 때');
-  autoMakeClone(
-    productSlide[0],
-    productSlideUl,
-    productSlide[storeTextCount - 1],
-    '.con__product-ul li',
-    productSlideWidth,
-  );
-}
-
-// autoMakeClone(
-//   productSlide[0],
-//   productSlideUl,
-//   productSlide[storeTextCount - 1],
-//   '.con__product-ul li',
-//   productSlideWidth,
-// );
-
-// 첫번째 요소, 마지막 요소 복제
+// 첫번째 요소, 마지막 요소 복제 함수
 function autoMakeClone(
   FirstSlideLi,
   slideUl,
@@ -67,11 +49,8 @@ function autoMakeClone(
   autoSlideLi,
   autoSlideWidth,
 ) {
-  // 첫번째 요소를 자식까지 복사해서 cloneSlide에 저장
   let cloneSlideFirst = FirstSlideLi.cloneNode(true);
-  // 복제된 요소에 클래스 추가
   cloneSlideFirst.classList.add('clone');
-  // a.appendChilde(b) a요소 뒤에 추가
   slideUl.appendChild(cloneSlideFirst);
 
   let cloneSlideLast = lastSlideLi.cloneNode(true);
@@ -101,12 +80,15 @@ function updatePosition() {
   // index 1을 보이게 하기 위해 ul 위치 조절
   storeSliderUl.style.left = -storeSlideWidth + 'px';
   conStoreTextUl.style.transform = `translateX(${-storeTextWidth}px)`;
-  productSlideUl.style.left = -productSlideWidth + 'px';
+  productUl.style.left = -productSlideWidth + 'px';
 }
 
 // 실행부분 ---------------------------------------------
 let timerId;
+// 매장안내 실행 함수 호출
 moveAutoSlide(storeCurrentIdx);
+
+// 매장안내 슬라이드 실행 함수
 function moveAutoSlide(num) {
   // 슬라이드 한개 너비만큼 이동
   storeSliderUl.style.left = -(storeSlideWidth * num + storeSlideWidth) + 'px';
@@ -115,21 +97,14 @@ function moveAutoSlide(num) {
     storeTextWidth
   )}px)`;
   storeCurrentIdx = num;
-  // 받아온 +1 한 currentIdx를 저장
   if (storeCurrentIdx == storeSlideCount) {
-    // 0.5초가 지나고 1번으로 바뀌도록 하기 위해
     setTimeout(() => {
-      // 바뀌는게 보이지 않게 애니메이션 효과를 없애준다.
       storeSliderUl.classList.remove('animated');
       conStoreTextUl.classList.remove('animated');
-      // 빠르게 앞에 1번으로 바꿔줄 것!
       storeSliderUl.style.left = -storeSlideWidth + 'px';
       conStoreTextUl.style.transform = `translateX(${-storeTextWidth}px)`;
-      // index는 1;
       storeCurrentIdx = 0;
     }, 500);
-    // 0.5초가 지나고 애니메이션 효과가 없으니 0.6초에
-    // 애니메이션을 추가해준다.
     setTimeout(() => {
       storeSliderUl.classList.add('animated');
       conStoreTextUl.classList.add('animated');
@@ -157,6 +132,7 @@ function moveAutoSlide(num) {
   }, 3000);
 }
 
+// 매장안내 버튼 이벤트
 storePrev.addEventListener('click', (e) => {
   e.preventDefault();
   clearTimeout(timerId);
@@ -168,10 +144,10 @@ storeNext.addEventListener('click', (e) => {
   moveAutoSlide(storeCurrentIdx + 1);
 });
 
-// 버튼 추가 함수
+// 상품안내
 createProductBtn();
 function createProductBtn() {
-  for (let i = 0; i < productCount; i++) {
+  for (let i = 0; i < productItemCount; i++) {
     let productBtn = document.createElement('span');
     productBtn.setAttribute('class', 'product__btn-span');
     productBtnBox.appendChild(productBtn);
@@ -180,41 +156,43 @@ function createProductBtn() {
 
 let productBtnEle = document.querySelectorAll('.product__btn-box>span');
 
+if (window.innerWidth <= 768 && productItemCount <= 4) {
+  // 버튼 추가 함수
+  console.log('사이즈 변경');
+  autoMakeClone(
+    productItem[0],
+    productUl,
+    productItem[productItemCount - 1],
+    '.con__product-ul > li',
+    productSlideWidth,
+  );
+}
+
 let productTimerId;
 moveProduct(productSlideIdx);
 function moveProduct(num) {
-  productSlideUl.style.left = `${
-    -productSlideWidth * num + -productSlideWidth
-  }px`;
-
-  productSlideUl.classList.add('animated');
+  productSlideWidth = productSlideWrap.getBoundingClientRect().width;
+  productUl.style.left = `${-productSlideWidth * num + -productSlideWidth}px`;
+  productUl.classList.add('animated');
   productSlideIdx = num;
-
   if (productSlideIdx == 4) {
-    // 0.5초가 지나고 1번으로 바뀌도록 하기 위해
     setTimeout(() => {
-      // 바뀌는게 보이지 않게 애니메이션 효과를 없애준다.
-      productSlideUl.classList.remove('animated');
-      // 빠르게 앞에 1번으로 바꿔줄 것!
-      productSlideUl.style.left = -productSlideWidth + 'px';
-      // index는 1;
+      productUl.classList.remove('animated');
+      productUl.style.left = -productSlideWidth + 'px';
       productSlideIdx = 0;
     }, 500);
-    // 0.5초가 지나고 애니메이션 효과가 없으니 0.6초에
-    // 애니메이션을 추가해준다.
     setTimeout(() => {
-      productSlideUl.classList.add('animated');
+      productUl.classList.add('animated');
     }, 600);
   }
   if (productSlideIdx == -1) {
     setTimeout(() => {
-      productSlideUl.classList.remove('animated');
-      productSlideUl.style.left = -productSlideWidth * productCount + 'px';
-      // storeCurrentIdx = storeSlideCount;
-      productSlideIdx = productCount - 1;
+      productUl.classList.remove('animated');
+      productUl.style.left = -productSlideWidth * productItemCount + 'px';
+      productSlideIdx = productItemCount - 1;
     }, 500);
     setTimeout(() => {
-      productSlideUl.classList.add('animated');
+      productUl.classList.add('animated');
     }, 600);
   }
   productTimerId = setTimeout(() => {

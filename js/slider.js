@@ -86,7 +86,6 @@ const cardBtnBox = document.querySelector('.card__btn-box');
 
 // // 새로운 요소 추가
 function makeCloneCard() {
-  console.log('새로운 요소 추가 함수 호출');
   let cloneCardSlideFirst = conCardLi[0].cloneNode(true);
   let cloneCardSlideSecond = conCardLi[1].cloneNode(true);
   cloneCardSlideFirst.classList.add('clone');
@@ -105,20 +104,17 @@ function makeCloneCard() {
 }
 // 추가된 요소 업데이트
 function updateWidthCardSlide() {
-  console.log('ul 너비 설정 함수 호출');
   let currentCardSlides = document.querySelectorAll('.con__card>li');
   let newCardSlideCount = currentCardSlides.length;
   conCard.style.width = `calc(45% * ${newCardSlideCount})`;
 }
 // 추가된 요소 위치 잡기
 function updatePositionCardSlide() {
-  console.log('ul 처음 자리 맞춤');
   conCard.style.left = 'calc(-45% + 50px)';
 }
 createBtn();
 // 버튼 추가 함수
 function createBtn() {
-  console.log('버튼 생성 함수 호출');
   for (let i = 0; i < conCardCount; i++) {
     let cardBtn = document.createElement('span');
     cardBtn.setAttribute('class', 'card__btn-span');
@@ -128,7 +124,6 @@ function createBtn() {
 cardBtnEven();
 // // 버튼 이벤트 함수
 function cardBtnEven() {
-  console.log('버튼 이벤트 함수 호출');
   const cardBtnEle = document.querySelectorAll('.card__btn-box>span');
   cardBtnEle[cardIdx].classList.add('active');
   cardBtnEle.forEach((btn, index) => {
@@ -142,19 +137,15 @@ function cardBtnEven() {
 }
 // 슬라이드 애니메이션 함수
 function moveCardSlide(num, winWidth) {
-  console.log('버튼 애니메이션 함수 호출', num, winWidth);
-
   if (winWidth > 768 && winWidth <= 1023)
     conCard.style.left = `calc(-45% * ${num} - 45% + 50px)`;
   if (winWidth <= 768) conCard.style.left = `calc(-90% * ${num} - 90% + 4vw)`;
 }
 
 if (window.innerWidth <= 1023) {
-  console.log('처음 뷰사이즈 991 이하 일 때');
   makeCloneCard();
 }
 if (window.innerWidth <= 768) {
-  console.log('처음 뷰사이즈 766 이하 일 때');
   conCard.style.width = 'calc(90% * 8)';
   conCard.style.left = 'calc(-90% + 4vw)';
 }

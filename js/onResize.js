@@ -30,34 +30,47 @@ window.onresize = function () {
   } else if (mainSlideWidth <= 1023 && cardLiCount <= 5) {
     console.log('onsize 991보다 작을 때');
     makeCloneCard();
-    // createBtn();
-    // cardBtnEven();
   }
 
-  //  상품안내 미디어쿼리 적용 시 슬라이드
-  let productNewList = document.querySelectorAll('.con__product-ul>li');
-  // 상품안내 갯수
-  let productLiCount = productNewList.length;
-
-  if (mainSlideWidth >= 768 && productLiCount > 4) {
+  let productNewList = document.querySelectorAll('.con__product-ul > li');
+  let productNewCount = productNewList.length;
+  if (mainSlideWidth >= 768) {
     console.log('onsize 766보다 클 때');
-    productNewList.forEach((item) => {
-      item.classList.contains('clone') && item.remove();
-      productSlideUl.style.width = '100%';
-    });
-    // 추가한 요소를 지운다.
-    // ul의 width를 초기화
-  } else if (mainSlideWidth <= 768 && productLiCount <= 4) {
+    if (productNewCount > 4) {
+      productNewList.forEach((item) => {
+        item.classList.contains('clone') && item.remove();
+        productUl.style.width = '100%';
+      });
+    }
+  } else if (mainSlideWidth <= 768) {
     console.log('onsize 766보다 작을 때');
-    // 상품안내 새로 만들기 함수를 재호출 한다.
-    autoMakeClone(
-      productSlide[0],
-      productSlideUl,
-      productSlide[storeTextCount - 1],
-      '.con__product-ul li',
-      productSlideWidth,
-    );
+    // identity & growth
     conCard.style.width = 'calc(90% * 8)';
     conCard.style.left = 'calc(-90% + 4vw)';
+
+    const productNewSlideWrap = document.querySelector('.product__slide-wrap');
+    let productNewSlideWidth =
+      productNewSlideWrap.getBoundingClientRect().width;
+
+    // 상품안내
+    if (productNewCount <= 4) {
+      autoMakeClone(
+        productItem[0],
+        productUl,
+        productItem[productItemCount - 1],
+        '.con__product-ul > li',
+        productSlideWidth,
+      );
+    }
+    let productUpdateCount = document.querySelectorAll(
+      '.con__product-ul > li',
+    ).length;
+
+    const productNewUl = document.querySelector('.con__product-ul');
+
+    productNewUl.style.width = `calc(${productNewSlideWidth} * ${productUpdateCount}px)`;
+    productUl.style.left = `${
+      -productNewSlideWidth * productSlideIdx + -productNewSlideWidth
+    }px`;
   }
 };
