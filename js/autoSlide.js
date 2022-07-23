@@ -83,7 +83,6 @@ function updatePosition() {
   productUl.style.left = -productSlideWidth + 'px';
 }
 
-// 실행부분 ---------------------------------------------
 let timerId;
 // 매장안내 실행 함수 호출
 moveAutoSlide(storeCurrentIdx);

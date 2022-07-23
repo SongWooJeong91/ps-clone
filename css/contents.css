@@ -19,7 +19,6 @@
   padding-top: 15px 0 0;
   margin: 0 0 60px;
   text-align: center;
-  /* line-height: 1.7; */
   letter-spacing: -0.05em;
   color: #222;
   font-weight: 600;
@@ -396,7 +395,6 @@ button {
     display: block;
   }
   .con__service-ul {
-    /* flex: 0; */
     flex-direction: column;
   }
   .con__service-ul > li {
@@ -436,7 +434,6 @@ button {
     background: url(https://www.psnmarketing.com/home/layouts/home/shop/img/main/mcon03_ico02.png)
       no-repeat left top/14%;
   }
-  /* =============================================================== */
   /* 상품안내 */
   .product__slide-wrap {
     width: 100%;

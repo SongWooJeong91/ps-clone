@@ -26,7 +26,6 @@ function makeClone() {
 }
 // 추가된 요소 업데이트
 function updateWidthSlide() {
-  // console.log('updateWidthSlide()');
   let currentSlides = document.querySelectorAll('.slider__ul li');
   let newSlideCount = currentSlides.length;
 
@@ -35,7 +34,6 @@ function updateWidthSlide() {
 }
 // 추가된 요소 위치 잡기
 function updatePositionSlide() {
-  // console.log('updatePositionSlide()');
   mainSliderUl.style.left = -mainSlideWidth + 'px';
 }
 
@@ -84,7 +82,7 @@ const conCardSlide = document.querySelector('.con__card-slide');
 let cardSlideWidth = conCard.getBoundingClientRect().width / conCardCount;
 const cardBtnBox = document.querySelector('.card__btn-box');
 
-// // 새로운 요소 추가
+// 새로운 요소 추가
 function makeCloneCard() {
   let cloneCardSlideFirst = conCardLi[0].cloneNode(true);
   let cloneCardSlideSecond = conCardLi[1].cloneNode(true);
@@ -122,7 +120,7 @@ function createBtn() {
   }
 }
 cardBtnEven();
-// // 버튼 이벤트 함수
+// 버튼 이벤트 함수
 function cardBtnEven() {
   const cardBtnEle = document.querySelectorAll('.card__btn-box>span');
   cardBtnEle[cardIdx].classList.add('active');

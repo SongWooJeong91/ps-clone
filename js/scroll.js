@@ -9,7 +9,7 @@ topBtn.addEventListener('click', (e) => {
 
 const conTran = document.querySelector('.con__tran');
 const conCardSc = document.querySelector('.con__card');
-const conCardScLi = document.querySelectorAll('.con__card>li');
+let conCardScLi = document.querySelectorAll('.con__card>li');
 const conTranProduct = document.querySelector('.con__tran-product');
 const conProductUl = document.querySelector('.con__product-ul');
 const conProductUlLi = document.querySelectorAll('.con__product-ul>li');
@@ -53,6 +53,7 @@ window.addEventListener('scroll', () => {
     conCardSc.getBoundingClientRect().top - scrSpace >
     -conCardSc.getBoundingClientRect().height / 4
   ) {
+    conCardScLi = document.querySelectorAll('.con__card>li');
     conCardScLi.forEach((card, idx) => {
       card.style.transform = 'translateY(200px)';
       card.style.opacity = '0';
